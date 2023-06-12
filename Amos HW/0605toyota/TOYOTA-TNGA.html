@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;700&display=swap" rel="stylesheet">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        h1{
+            text-align: center;
+            position: relative;
+            margin:20px;
+        }
+        h1::after{
+            content: '';
+            width: 30px;
+            border-bottom: 4px solid #000;
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            left: 0;
+            margin: auto;
+        }
+        .list{
+            width: 100%;
+            margin: auto;
+        }
+        .list-item{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            /* padding: 10px; */
+            outline: 1px solid #ae0014;
+            margin: 40px 0;
+        }
+        .list-item div{
+            text-align: center;
+            border:1px solid #000;
+            border-style: dotted;
+            width: 175px;
+            padding: 5px  ;
+            margin: 10px 5px;
+            position: relative;
+            transition: 1s;
+            box-sizing: border-box;
+        }
+        .list-item div::after{
+            content: '';
+            width: 100%;
+            border-bottom: 2px solid #ae0014;
+            background-color: #fff;
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+        }
+        .list-item div:hover{
+            color: #fff;
+            background-color: #ae0014;
+            font-weight: 600;
+            font-size: 17px;
+        }
+        .content{
+            width: 960px;
+            margin: auto;
+        }
+        .content span{
+            display: inline-block;
+            transform: rotate(90deg);
+            font-size: 50px;
+        }
+        .item{
+            width: 960px;
+            display: flex;
+            flex-direction: column;
+            margin-top: 250px;
+            position: relative;
+            outline: 1px solid #f00;
+            
+        }
+        section{
+            text-align: center;
+            width: 30%;
+            position: absolute;
+            top: -90px;
+            left: 0;
+        }
+        section:nth-child(2n){
+            position: absolute;
+            left: 30px;
+        }
+        .item h2{
+            font-size: 50px;
+            background-color: #ae0014;
+            color: #fff;
+            padding: 10px;
+        }
+        .item p{
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+        }
+        .item a{
+            width: 600px;
+            margin: auto;
+        }
+        .item img{
+            width: 100%;
+            vertical-align: text-top;
+        }
+        .item .art{
+            width: 960px;
+            position: relative;
+            border: 1px solid red;
+        }
+        .item article{
+            background-color: #eeeeee;
+            width: 50%;
+            padding: 10px;
+            position: absolute;
+            top: -30px;
+            left: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="list">
+        <h1>五大優勢</h1>
+        <div class="list-item">
+            <div>操控樂趣</div>
+            <div>安全守護</div>
+            <div>乘坐舒適</div>
+            <div>以人為本</div>
+            <div>引以為傲</div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="item item1">
+            <section>
+                <h2><span>01</span>操控樂趣</h2>
+                <p>
+                    人人滿意的駕駛體驗透過最佳重量分配,實現平順起 步、直線穩定加速,過彎同時保持 車身平穩·帶給駕駛更靈敏的道路 反饋,享受隨心馳騁的行駛快感
+                </p>
+            </section>
+            <a href="#"><img src="https://picsum.photos/300/200/?random=1"></a>
+            <div class="art">
+                <article>因為我們做了這些革新
+                    低重心設計
+                    透過低重心設計,不僅呈現更低伏的外觀,更能減少車身側傾,保持高速行駛穩定性。 車體剛性強化| 車身結構採用超高強度鋼材,提高車輛穩定性,同時藉由雷射強化焊接技術,大幅增加 焊點數量,提升車身抗扭剛性,強化駕馭穩定性及安全性。 四輪獨立懸吊 搭載全新四輪獨立懸吊設定,透過懸吊的高承載強度,保持輪胎抓地力,同時兼顧轉向 靈敏度與清晰路感回饋,提升駕馭樂趣。</article>
+            </div>
+        </div>
+        <div class="item item2">
+            <section>
+                <h2><span>02</span>安全守護</h2>
+                <p>
+                    行車更安心的高剛性車體您的愛車會妥善保護您,強悍穩固 的車身可使您安全無虞。世界級的 安全功能讓您輕鬆自如享受旅程、 毫無後顧之憂。
+                </p>
+            </section>
+            <a href="#"><img src="https://picsum.photos/300/200/?random=2"></a>
+            <div class="art">
+                <article>因為我們做了這些革新 主動安全 以先進的 ,主動偵測路況,輔助駕駛判斷路況並維持行車安全。 TSS系統 被動安全 ·堅固的高剛性車體,使用熱沖壓材料的高強度抗扭鋼板,強化座艙對意外事故的保護力。
+                </article>
+            </div>
+        </div>
+        <div class="item item3">
+            <section>
+                <h2><span>03</span>乘坐舒適</h2>
+                <p>
+                    令人放鬆舒適的車室空間 車室空間設計著重人體工學,透過 方向盤、踏板等位置優化,追求更 舒適的駕駛位置,並以新型座椅設 計,提高座椅包覆性,致力實現長 途駕駛不疲勞的舒適駕馭體驗。
+                </p>
+            </section>
+            <a href="#"><img src="https://picsum.photos/300/200/?random=3"></a>
+            <div class="art">
+                <article>因為我們做了這些革新 駕駛位置最佳化| 「針對駕駛位置進行徹底的修改,讓駕馭者可如同握手般自然且舒適地操控方向盤。 駕駛視野佳| 考量駕駛坐進車內的高度,透過前擋風玻璃位置的調整,達到盲區極小化,使駕駛視野 更開闊,同步提升駕馭安全。 更寧靜的車室 採用最新三層結構的隔音材料,與引擎、變速箱的零件改革,將座艙的震動抑制在最小 限度,提供乘客舒適安靜的感受。
+                </article>
+            </div>
+        </div>
+        <div class="item item4">
+            <section>
+                <h2><span>04</span>以人為本</h2>
+                <p>
+                    使用者導向的貼心設計 藉由高度人性化的介面整合、傳遞 車輛資訊、豐富日常駕駛體驗、 從提升油耗表現到行李廂空間最適 化、均細心考量、更加貼近使用者 真正所需與習慣,並給予即時回應
+                </p>
+            </section>
+            <a href="#"><img src="https://picsum.photos/300/200/?random=4"></a>
+            <div class="art">
+                <article>
+                    因為我們做了這些革新 【優異油耗表現| 以 Corolla Sport為例,更強勁的高效引擎將熱效率提升至40%,達到世界級水準, 屢屢突破燃油效率新境界 |行李箱空間最適化 以第四代 Prius為例,透過將電池位置移到後座下方,讓行李箱擁有更大的空間。
+                </article>
+            </div>
+        </div>
+        <div class="item item5">
+            <section>
+                <h2><span>05</span>引以為傲</h2>
+                <p>
+                    極具吸引力的精心設計 TNGA 車款擁有讓人忍不住回頭的 新潮外觀、讓駕駛充滿自信的駕馭 快感!不僅讓車主能展現個人風格, 也能讓擁有者都能引以為傲。
+                </p>
+            </section>
+            <a href="#"><img src="https://picsum.photos/300/200/?random=5"></a>
+            <div class="art">
+                <article>因為我們做了這些革新 設計概念 ·TGA 低重心設計 ,不僅呈現更低伏的運動化外觀, 更講究高品質內裝的一致性 。 環保概念 為了對 效能。 · 環境保護盡 一份心力 ,我們全面提升傳統引擎、變速箱與油電複合動力的動力
+                </article>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

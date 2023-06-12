@@ -20,30 +20,37 @@
             font-size: 20px;
             color: #fff;
         }
-        .nmuber:hover{
+        .number:hover{
             color: #fc9933;
         }
-        .nmuber{
+        .number{
             color: #fff;
             text-decoration: none;
         }
         .list-item{
             display: flex;
-            align-items: center;
+            /* align-items: center; */
             width: 960px;
             height: 120px;
             border: 1px solid red;
             margin: 5px 0;
         }
-        .list-item a{
+        .list-item .logo a{
             font-size: 30px;
             color: #535353;
             text-decoration: none;
-            align-items: center;
             padding: 6px;
+            border: 1px solid red;
         }
-        .list-item nav a{
+        .list-item .option {
+            margin: auto;
+        }
+        .list-item .option a{
+            color: #535353;
+            text-decoration: none;
+            padding: 6px;
             font-size: 18px;
+            border: 1px solid red;
         }
         .list-item .btn-donate{
             align-items: center;
@@ -162,20 +169,20 @@
     <div class="header">
         <i class="fa-solid fa-phone" style="color: #272626;"></i>
         <div>Toll-free:</div>
-        <a href="#" class="nmuber">(123) 456-7890</a>
+        <a href="#" class="number">(123) 456-7890</a>
     </div>
     <div class="list-item">
         <div class="logo">
             <a href="#"><img src="./assets/logo.png" alt="logo"></a>
             <a href="#" class="logo-text">Anilove</a>
         </div>
-        <nav>
+        <div class="option">
             <a href="#">Home</a>
             <a href="#">About</a>
             <a href="#">Event</a>
             <a href="#">News</a>
             <a href="#">Contacts</a>
-        </nav>
+        </div class="option">
         <a href="#" class="btn-donate">DONATE NOW!</a>
     </div>
     <div class="content-donate">
