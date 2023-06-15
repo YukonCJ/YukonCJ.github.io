@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #000;
+    font-weight: 100;
+}
+.activities{
+    margin: 0 1%;
+}
+.latest {
+    border-top: 3px solid #000;
+    padding: 10px;
+}
+.post-title-group{
+    display: flex;
+    justify-content:space-between ;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+    margin: 50px 0 20px 0;
+}
+.post-title-group h1{
+    font-size: 18px;
+    border: 1px solid red;
+}
+.post-title-group h1>span{
+    display: block;
+    font-size: 11px;
+    color: #ccc;
+}
+.post-title-group a{
+    font-size: 13px;
+    margin: 15px;
+}
+.seemore{
+    color: #f50;
+}
+.seemore svg{
+    vertical-align: middle;
+    display: inline-block;
+    border: 1px solid #f50;
+    padding: 8px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+img{
+    border-radius: 10px;
+    width: 100%;
+    aspect-ratio: 3/2;
+}
+.topic-text{
+    margin: 10px;
+}
+.topic-text h1{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.topic-text h2{
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.topic-text p{
+    font-size: 11px;
+    border: 1px solid #000;
+}
+.symbol img{
+    width: 20px;
+    vertical-align: middle;
+}
+.symbol span{
+    font-size: 12px;
+}
+.more-info{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.info {
+    border: 1px solid #000;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.info .text{
+    font-size: 14px;
+}
+.info .date{
+    font-size: 12px;
+}
