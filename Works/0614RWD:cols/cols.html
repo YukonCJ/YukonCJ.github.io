@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .row{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .pic img{
+            vertical-align: bottom;
+            width: 100%;
+        }
+        [class*="cols-"]{
+            padding: 15px;
+            box-sizing: border-box;
+            width: calc(100% / 12 * var(--cols-p))
+        }
+        .cols-1{--cols-p:1;}
+        .cols-2{--cols-p:2;}
+        .cols-3{--cols-p:3;}
+        .cols-4{--cols-p:4;}
+        .cols-5{--cols-p:5;}
+        .cols-6{--cols-p:6;}
+        .cols-7{--cols-p:7;}
+        .cols-8{--cols-p:8;}
+        .cols-9{--cols-p:9;}
+        .cols-10{--cols-p:10;}
+        .cols-11{--cols-p:11;}
+        .cols-12{--cols-p:12;}
+        @media screen and (min-width:768px){
+        .cols-md-1{--cols-p:1;}
+        .cols-md-2{--cols-p:2;}
+        .cols-md-3{--cols-p:3;}
+        .cols-md-4{--cols-p:4;}
+        .cols-md-5{--cols-p:5;}
+        .cols-md-6{--cols-p:6;}
+        .cols-md-7{--cols-p:7;}
+        .cols-md-8{--cols-p:8;}
+        .cols-md-9{--cols-p:9;}
+        .cols-md-10{--cols-p:10;}
+        .cols-md-11{--cols-p:11;}
+        .cols-md-12{--cols-p:12;}
+        }
+        @media screen and (min-width:1024px){
+        .cols-lg-1{--cols-p:1;}
+        .cols-lg-2{--cols-p:2;}
+        .cols-lg-3{--cols-p:3;}
+        .cols-lg-4{--cols-p:4;}
+        .cols-lg-5{--cols-p:5;}
+        .cols-lg-6{--cols-p:6;}
+        .cols-lg-7{--cols-p:7;}
+        .cols-lg-8{--cols-p:8;}
+        .cols-lg-9{--cols-p:9;}
+        .cols-lg-10{--cols-p:10;}
+        .cols-lg-11{--cols-p:11;}
+        .cols-lg-12{--cols-p:12;}
+        }
+        @media screen and (min-width:1200px){
+        .cols-xl-1{--cols-p:1;}
+        .cols-xl-2{--cols-p:2;}
+        .cols-xl-3{--cols-p:3;}
+        .cols-xl-4{--cols-p:4;}
+        .cols-xl-5{--cols-p:5;}
+        .cols-xl-6{--cols-p:6;}
+        .cols-xl-7{--cols-p:7;}
+        .cols-xl-8{--cols-p:8;}
+        .cols-xl-9{--cols-p:9;}
+        .cols-xl-10{--cols-p:10;}
+        .cols-xl-11{--cols-p:11;}
+        .cols-xl-12{--cols-p:12;}
+        .container{
+            max-width: 1200px;
+            margin: auto;
+        }
+        .card:nth-last-child(-n+2),
+        .card:nth-child(1){
+            /* background-color: #ccc; */
+            display: flex;
+        }
+        .card:nth-last-child(-n+2)>.text,
+        .card:nth-child(1)>.text,
+        .card:nth-child(1)>.pic{
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row ">
+          <div class="card cols-12 cols-md-4 cols-lg-2 cols-xl-12">
+            <div class="pic">
+                <img src="https://picsum.photos/300/200/?random=10">
+            </div>
+            <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, beatae! Quas, harum. Aspernatur in recusandae minus ipsam iste? Dolore consequatur veniam eum, tenetur sequi vitae est error neque soluta porro.</div>
+          </div>
+          <div class="card cols-12 cols-md-4 cols-lg-2 cols-xl-4">
+            <div class="pic">
+                <img src="https://picsum.photos/300/200/?random=10">
+            </div>
+            <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, beatae! Quas, harum. Aspernatur in recusandae minus ipsam iste? Dolore consequatur veniam eum, tenetur sequi vitae est error neque soluta porro.</div>
+          </div>
+          <div class="card cols-12 cols-md-4 cols-lg-2 cols-xl-4">
+            <div class="pic">
+                <img src="https://picsum.photos/300/200/?random=10">
+            </div>
+            <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, beatae! Quas, harum. Aspernatur in recusandae minus ipsam iste? Dolore consequatur veniam eum, tenetur sequi vitae est error neque soluta porro.</div>
+          </div>
+          <div class="card cols-12 cols-md-4 cols-lg-2 cols-xl-4">
+            <div class="pic">
+                <img src="https://picsum.photos/300/200/?random=10">
+            </div>
+            <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, beatae! Quas, harum. Aspernatur in recusandae minus ipsam iste? Dolore consequatur veniam eum, tenetur sequi vitae est error neque soluta porro.</div>
+          </div>
+          <div class="card cols-12 cols-md-4 cols-lg-2 cols-xl-6">
+            <div class="pic">
+                <img src="https://picsum.photos/300/200/?random=10">
+            </div>
+            <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, beatae! Quas, harum. Aspernatur in recusandae minus ipsam iste? Dolore consequatur veniam eum, tenetur sequi vitae est error neque soluta porro.</div>
+          </div>
+          <div class="card cols-12 cols-md-4 cols-lg-2 cols-xl-6">
+            <div class="pic">
+                <img src="https://picsum.photos/300/200/?random=10">
+            </div>
+            <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, beatae! Quas, harum. Aspernatur in recusandae minus ipsam iste? Dolore consequatur veniam eum, tenetur sequi vitae est error neque soluta porro.</div>
+          </div>
+    </div>
+    
+</body>
+</html>

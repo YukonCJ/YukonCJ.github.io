@@ -21,7 +21,6 @@
 }
 .post-title-group h1{
     font-size: 18px;
-    border: 1px solid red;
 }
 .post-title-group h1>span{
     display: block;
@@ -43,10 +42,20 @@
     border-radius: 50%;
     margin: 0 5px;
 }
+.info-ProMax {
+    width: 100%;
+}
 img{
     border-radius: 10px;
     width: 100%;
     aspect-ratio: 3/2;
+    object-fit: cover;
+}
+.info-ProMax img{
+    width: 102%;
+    object-position: 0 0;
+    border-radius: 0;
+    margin-left: -1%;
 }
 .topic-text{
     margin: 10px;
@@ -61,29 +70,69 @@ img{
 }
 .topic-text p{
     font-size: 11px;
-    border: 1px solid #000;
 }
 .symbol img{
     width: 20px;
     vertical-align: middle;
 }
-.symbol span{
+.symbol {
+    width: 100%;
+    display: inline-block;
+    white-space:nowrap ;
+    overflow: hidden;
     font-size: 12px;
+    background-image:linear-gradient(to right, transparent 50% #fff 100%);
+}
+.post-info{
+    width: 100%;
+    box-sizing: border-box;
+    gap: 2%;
 }
 .more-info{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    box-sizing: border-box;
+    gap: 2%;
 }
 .info {
-    border: 1px solid #000;
-    width: 50%;
+    width: 49%;
     box-sizing: border-box;
-    padding: 10px;
+    margin-bottom: 20px;
+    /* border: 1px solid #000; */
 }
 .info .text{
     font-size: 14px;
 }
 .info .date{
     font-size: 12px;
+}
+@media screen and (min-width:768px){
+    .info-ProMax img{
+        border-radius: 10px;
+        width: 100%;
+        margin: 0;
+    }
+    .post-info{
+        width: 100%;
+        display: flex;
+        box-sizing: border-box;
+    }
+    .post-info .info-ProMax{
+        width: 50%;
+    }
+    .post-info .more-info{
+        width: 50%;
+    }
+    .post-title-group h1{
+        font-size: 26px;
+    }
+
+}
+@media screen and (min-width:1200px){
+    .activities{
+        max-width: 1200px;
+        margin: auto;
+    }
+
 }
