@@ -57,9 +57,6 @@ img{
     border-radius: 0;
     margin-left: -1%;
 }
-.topic-text{
-    margin: 10px;
-}
 .topic-text h1{
     font-size: 18px;
     margin-bottom: 10px;
@@ -126,6 +123,15 @@ img{
     }
     .post-title-group h1{
         font-size: 26px;
+    }
+    .topic-text{
+        display: flex;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .topic-text h1,
+    .topic-text h2{
+        width: 50%;
     }
 
 }
