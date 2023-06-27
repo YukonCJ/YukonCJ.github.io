@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+                <h1>猜數字</h1>
+                <input type="text" class="guessinput">
+                <label class="hint">請輸入整數 1~100</label>
+                <button class="guessbtn">猜</button>
+                <button class="rebtn">重新開始</button>
+                <button class="answerbtn">看答案</button>
+        </div>
+    </div>
+    <script>
+        
+    //宣告DOM
+    const guessInput = document.querySelector('.guessinput');
+    const hintArea = document.querySelector('.hint');
+    const guessBtn = document.querySelector('.guessbtn');
+    const restartBtn = document.querySelector('.rebtn');
+    const showAnswerBtn = document.querySelector('.answerbtn');
+    let guessInput2;
+    //宣告變數
+    let minNum, maxNum, answerNum, guessNum;
+
+    //DOM事件掛載
+    showAnswerBtn.addEventListener('click', function(){
+        alert(answerNum);
+    })
+    restartBtn.addEventListener('click',function(){
+        init()
+    })
+    guessBtn.addEventListener('click', guess)
+
+    window.onload = function(){
+        init();
+    }
+    function guess() {
+        const val = guessInput.value.trim()
+        if (val === '' || isNaN(val) || val[0] === '0') {
+            alert('請輸入正確的數字')
+            guessInput.value = ''
+            return
+        }
+        guessNum = parseInt(val)
+        if(isInValidNumRange())
+            return
+        
+        
+        if (guessNum === answerNum) {
+            alert(`答對了 答案是${answerNum}`)
+            init()
+            return
+        } else if (guessNum < answerNum) {
+            minNum = guessNum
+        } else if (guessNum > answerNum) {
+            maxNum = guessNum
+        }
+        guessInput.value = ''
+        showHint()
+    }
+    function isInValidNumRange(){
+            if(guessNum < minNum || guessNum > maxNum){
+                showHint()
+                guessInput.value = ''
+                alert('請確認輸入範圍')
+                return true
+            }
+            return false;
+        }
+    function showHint(){
+        hintArea.textContent = `請輸入${minNum} - ${maxNum}之間的數字`
+    }
+
+    function init(){
+        guessInput.value = '';
+        minNum = 1;
+        maxNum = 100;
+        answerNum = generateAnswer();
+        showHint();
+    }
+    function generateAnswer() {
+        return getRandomIntInclusive(minNum, maxNum);
+    }    
+    function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+    }
+    </script>
+</body>
+</html>
