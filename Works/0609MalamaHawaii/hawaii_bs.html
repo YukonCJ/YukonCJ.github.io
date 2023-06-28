@@ -5,20 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        a{
+            text-decoration:none;
+            color: black;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="row">
-            <div class="latest col-12">
-                <p>LATEST</p>
-            </div>
             <div class="content traveler">
                 <div class="post-title-group d-flex justify-content-between col-12">
-                    <h1 class="title">旅行者にできること<span>What Travelers Can Do</span></h1>
-                    <a href="#" class="seemore">すべて見る <svg xmlns="http://www.w3.org/2000/svg" height=".5em" viewBox="0 0 448 512"><style>svg{fill:#f50}</style><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
-                    </a>
+                    <h1 class="title fs-1">旅行者にできること<span class="fs-1">What Travelers Can Do</span></h1>
+                    <div class="seemore d-flex flex-grow">
+                        <a href="#">すべて見る</a>
+                        <svg xmlns="http://www.w3.org/2000/svg" height=".5em" viewBox="0 0 448 512"><style>svg{fill:#f50}</style><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
+                    </div>                   
                 </div>
-                <div class="post-info d-flex ">
+                <div class="post-info d-flex flex-wrap">
                     <div class="info-ProMax col-sm-12 col-lg-6">
                         <a href="#" class="Topiclink">
                             <img src="./main-1.png" alt="" class="w-100">
@@ -29,8 +38,8 @@
                             </article>
                         </a>
                     </div>
-                    <div class="more-info d-flex row-col-2 col-sm-12 col-lg-6">
-                        <div class="info col-sm-6 col-lg-3">
+                    <div class="more-info d-flex flex-wrap row-cols-2 col-sm-12 col-lg-6">
+                        <div class="info col">
                             <a href="#" class="infolink">
                                 <div class="symbol">
                                     <img src="./icon_eco1-1.svg" alt=""><span>エコ活動</span>
@@ -40,7 +49,7 @@
                                 <p class="date">2022.06.14</p>
                             </a>
                         </div>
-                        <div class="info col-sm-6 col-lg-3">
+                        <div class="info col">
                             <a href="#" class="infolink">
                                 <div class="symbol">
                                     <img src="./icon_event1-2.svg" alt=""><span>イベント</span>
@@ -50,7 +59,7 @@
                                 <p class="date">2022.06.08</p>
                             </a>
                         </div>
-                        <div class="info col-sm-6 col-lg-3">
+                        <div class="info col">
                             <a href="#" class="infolink">
                                 <div class="symbol">
                                     <img src="./icon_other1-3.svg" alt=""><span>その他</span>
@@ -60,7 +69,7 @@
                                 <p class="date">2022.01.28</p>
                             </a>
                         </div>
-                        <div class="info col-sm-6 col-lg-3">
+                        <div class="info col">
                             <a href="#" class="infolink">
                                 <div class="symbol">
                                     <img src="./icon_culture1-4.svg" alt=""><span>カルチャー</span>
@@ -78,55 +87,55 @@
     <div class="container">
         <div class="row">
             <div class="content Corporate">
-                <div class="post-title-group">
+                <div class="post-title-group d-flex justify-content-between col-12">
                     <h1 class="title">企業の取組み<span>Corporate Initiatives</span></h1>
                     <a href="#" class="seemore">すべて見る<svg xmlns="http://www.w3.org/2000/svg" height=".5em" viewBox="0 0 448 512"><style>svg{fill:#f50}</style><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
                     </a>
                 </div>
-                <div class="post-info">
-                    <div class="info-ProMax">
+                <div class="post-info d-flex flex-wrap">
+                    <div class="info-ProMax col-sm-12 col-lg-6">
                         <a href="#" class="Topiclink">
                             <div class="symbol">
                                 <span>ジャルパック</span>
                             </div>
-                            <img src="./main-2.jpeg" alt="">
+                            <img src="./main-2.jpeg" alt="" class="w-100">
                             <article class="topic-text">
                                 <h1 >【チームJALハワイ】ビーチクリーンアップ活動で地元コミュニティに貢献! </h1>
                                 <h2>JALハワイ支店とJALPAK International Hawaiiで構成された“チームJALハワイ”は、ハワイ州観光局が提唱する「マラマハワイ~ハワイを思<p>2022.11.02</p></h2>
                             </article>
                         </a>
                     </div>
-                    <div class="more-info col-12 cols-md-12">
-                        <div class="info col-md-6 col-lg-3">
+                    <div class="more-info d-flex flex-wrap row-cols-2 col-sm-12 col-lg-6">
+                        <div class="info col">
                             <a href="#" class="infolink">
-                                <img src="./sec.2-1.jpeg" alt="">
+                                <img src="./sec.2-1.jpeg" alt="" class="w-100">
                                 <p class="text">廃棄された漁網を服に生まれ変わらせる！海を守ろうと活動する人々が主役のドキュメンタリーを作るプロジェクトをサポートしませんか？</p>
                                 <p class="date">2022.07.27</p>
                             </a>
                         </div>
-                        <div class="info col-md-6 col-lg-3">
+                        <div class="info col">
                             <a href="#" class="infolink">
-                                <img src="./sec.2-2.jpeg" alt="">
+                                <img src="./sec.2-2.jpeg" alt="" class="w-100">
                                 <p class="text">第33回タートル・インディペンデンス・デイ開催</p>
                                 <p class="date">2022.07.01</p>
                             </a>
                         </div>
-                        <div class="info col-md-6 col-lg-3">
+                        <div class="info col">
                             <a href="#" class="infolink">
                                 <div class="symbol">
                                     <span>ザ・リッツカールトン・レジデンス・ワイキキ</span>
                                 </div>
-                                <img src="./sec.2-3.jpeg" alt="">
+                                <img src="./sec.2-3.jpeg" alt="" class="w-100">
                                 <p class="text">「シーアスパラガス」を生産している「オラカイ」のサステナブルな取り組み</p>
                                 <p class="date">2022.06.15</p>
                             </a>
                         </div>
-                        <div class="info col-md-6 col-lg-3">
+                        <div class="info col">
                             <a href="#" class="infolink">
                                 <div class="symbol">
                                     <span>オラカイ株式会社</span>
                                 </div>
-                                <img src="./sec.2-4.jpeg" alt="">
+                                <img src="./sec.2-4.jpeg" alt="" class="w-100">
                                 <p class="text">【ザ・リッツ・カールトン・レジデンス ワイキキビーチ】オアフ島内最大運河、アラワイ運河の浄化プロジェクト「ゲンキ・アラワイ・プロジェクト」の協力パートナーに</p>
                                 <p class="date">2022.06.14</p>
                             </a>
@@ -139,18 +148,18 @@
     <div class="container">
         <div class="row">
             <div class="content Tourism">
-                <div class="post-title-group">
+                <div class="post-title-group d-flex justify-content-between col-12">
                     <h1 class="title">ハワイ州観光局の取組み<span>Hawai'i Tourism Japan Initiatives</span></h1>
                     <a href="#" class="seemore">すべて見る<svg xmlns="http://www.w3.org/2000/svg" height=".5em" viewBox="0 0 448 512"><style>svg{fill:#f50}</style><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
                     </a>
                 </div>
-                <div class="post-info">
-                    <div class="info-ProMax">
+                <div class="post-info d-flex flex-wrap">
+                    <div class="info-ProMax col-sm-12 col-lg-6">
                         <a href="#" class="Topiclink">
                             <div class="symbol">
                                 <span>ハワイ州観光局</span>
                             </div>
-                            <img src="./main-3.jpg" alt="">
+                            <img src="./main-3.jpg" alt="" class="w-100">
                             <article class="topic-text">
                                 <h1>マウイ郡、ハワイ島、海洋生物に影響与える日焼け止めの流通禁止を発表</h1>
                                 <h2>2022年10月1日からマウイ郡ンミネラルの日焼け止めの流通・販売禁止条例を施行 マウイ郡の条例5306号により、2022年10月1日からマウイ島、ラナイ島、</h2>
@@ -158,43 +167,43 @@
                             </article>
                         </a>
                     </div>
-                    <div class="more-info col-12 cols-md-12">
-                        <div class="info col-md-6 col-lg-3">
+                    <div class="more-info d-flex flex-wrap row-cols-2 col-sm-12 col-lg-6">
+                        <div class="info col">
                             <a href="#" class="infolink">
                                 <div class="symbol">
                                     <span>ハワイ州観光局</span>
                                 </div>
-                                <img src="./sec.3-1.jpeg" alt="">
+                                <img src="./sec.3-1.jpeg" alt="" class="w-100">
                                 <p class="text">TBSミニ番組マラマ〜新しいハワイ旅〜</p>
                                 <p class="date">2022.10.01</p>
                             </a>
                         </div>
-                        <div class="info col-md-6 col-lg-3">
+                        <div class="info col">
                             <a href="#" class="infolink">
                                 <div class="symbol">
                                     <span>ハワイ州観光局</span>
                                 </div>
-                                <img src="./sec.3-2.png" alt="">
+                                <img src="./sec.3-2.png" alt="" class="w-100">
                                 <p class="text">ハワイ州観光局、マラマハワイリツイートキャンペーン第2弾を実施 動画の楽曲を作詞された倉木麻衣さんのbillboard classics主催シンフォニックコンサート3公演を合計30組60名様にご招待</p>
                                 <p class="date">2022.06.06</p>
                             </a>
                         </div>
-                        <div class="info col-md-6 col-lg-3">
+                        <div class="info col">
                             <a href="#" class="infolink">
                                 <div class="symbol">
                                     <span>ハワイ州観光局</span>
                                 </div>
-                                <img src="./sec.3-3.jpeg" alt="">
+                                <img src="./sec.3-3.jpeg" alt="" class="w-100">
                                 <p class="text">ハワイ州観光局、モデルのローラさんをマラマハワイ・アンバサダーに任命</p>
                                 <p class="date">2022.04.22</p>
                             </a>
                         </div>
-                        <div class="info col-md-6 col-lg-3">
+                        <div class="info col">
                             <a href="#" class="infolink">
                                 <div class="symbol">
                                     <span>ハワイ州観光局</span>
                                 </div>
-                                <img src="./sec.3-4.jpeg" alt="">
+                                <img src="./sec.3-4.jpeg" alt="" class="w-100">
                                 <p class="text">ハワイ州観光局、マラマハワイ動画のリツイートキャンペーンを実施~動画のために書き下ろした『Sea wind』が収録された倉木麻衣さんサイン入りCDを10名様に贈呈~</p>
                                 <p class="date">2021.12.14</p>
                             </a>
@@ -207,15 +216,15 @@
     <div class="container">
         <div class="row">
             <div class="content Communitiy">
-                <div class="post-title-group">
+                <div class="post-title-group d-flex justify-content-between col-12">
                     <h1 class="title">コミュニティの取り組み<span>Communitiy Initiatives</span></h1>
                     <a href="#" class="seemore">すべて見る<svg xmlns="http://www.w3.org/2000/svg" height=".5em" viewBox="0 0 448 512"><style>svg{fill:#f50}</style><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
                     </a>
                 </div>
-                <div class="post-info">
-                    <div class="info-ProMax">
+                <div class="post-info d-flex flex-wrap">
+                    <div class="info-ProMax col-sm-12 col-lg-6">
                         <a href="#" class="Topiclink">
-                            <img src="./main-4.jpeg" alt="">
+                            <img src="./main-4.jpeg" alt="" class="w-100">
                             <article class="topic-text">
                                 <h1>Zero Waste Oahu (ゼロウェイストオアフ) の取り組み</h1>
                                 <h2>Zero Waste Oahuは現在の生産方法、購買システム、廃棄物管理システムに積極的に介入するシステムを通じて、バランスのとれた消費文化と廃棄物の少ない未来</h2>
@@ -223,40 +232,40 @@
                             </article>
                         </a>
                     </div>
-                    <div class="more-info col-12 cols-md-12">
-                        <div class="info col-md-6 col-lg-3">
+                    <div class="more-info d-flex flex-wrap row-cols-2 col-sm-12 col-lg-6">
+                        <div class="info col">
                             <a href="#" class="infolink">
                                 <div class="symbol">
                                     <span>サスティナブル・コーストラインズ・ハワイ(Sustainable Coastlines Hawaii)</span>
                                 </div>
-                                <img src="./sec.4-1.jpeg" alt="">
+                                <img src="./sec.4-1.jpeg" alt="" class="w-100">
                                 <p class="text">サスティナブル・コーストラインズ・ハワイ、第二回クリーンアップイベント「The Kaimukī Cleanup Festival 」に参加</p>
                                 <p class="date">2022.06.20</p>
                             </a>
                         </div>
-                        <div class="info col-md-6 col-lg-3">
+                        <div class="info col">
                             <a href="#" class="infolink">
-                                <img src="./sec.4-2.jpeg" alt="">
+                                <img src="./sec.4-2.jpeg" alt="" class="w-100">
                                 <p class="text">地上最古の海洋生物の一種であるウミガメ彼らを絶滅の危機から保護する「マラマ イ ナ ホヌ」</p>
                                 <p class="date">2022.05.26</p>
                             </a>
                         </div>
-                        <div class="info col-md-6 col-lg-3">
+                        <div class="info col">
                             <a href="#" class="infolink">
                                 <div class="symbol">
                                     <span>アウトリガー・ホテルズ＆リゾーツ</span>
                                 </div>
-                                <img src="./sec.4-3.jpeg" alt="">
+                                <img src="./sec.4-3.jpeg" alt="" class="w-100">
                                 <p class="text">サステナブルなアートとファッションをテーマにしたイベント「THINK GLOBALLY, ACT LOCALLY」を開催</p>
                                 <p class="date">2022.04.23</p>
                             </a>
                         </div>
-                        <div class="info col-md-6 col-lg-3">
+                        <div class="info col">
                             <a href="#" class="infolink">
                                 <div class="symbol">
                                     <span>クプ・ハワイ(KUPU Hawaii)</span>
                                 </div>
-                                <img src="./sec.4-4.jpeg" alt="">
+                                <img src="./sec.4-4.jpeg" alt="" class="w-100">
                                 <p class="text">次世代を支援するクプ・ハワイ、Ho'okupu Centerの取り組み</p>
                                 <p class="date">2021.06.23</p>
                             </a>
