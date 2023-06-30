@@ -10,71 +10,57 @@
 <body>
     <div class="container">
         <h1>1A2B</h1>
-        <input type="text" id="theGuessNumber">
+        <input type="text" id="InputNumber">
         <button id="guess">Guess</button>
         <button id="showAnswer">showAnswer</button>
         <button id="clearRecord">clearRecord</button>
         <button id="restart">restart</button>
         <table id="playRecord"></table>
+        <label id="guessTimes"></label>
     </div>
 
     <script>
 
-        let answer
-        let numArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-        let ansArray = []
-        let num
-        let countsA, countsB
+        let answer;
+        let numArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let ansArray = [];
+        let num;
+        let countsA, countsB;
         let guessTimes = 0;
 
-
-
-
-        let theGuessNumberBtn = document.querySelector("#theGuessNumber");
-
-
-        let guessBtn = document.querySelector("#guess");
-        guessBtn.addEventListener("click", guess)
-
-        let showAnswerBtn = document.querySelector("#showAnswer");
-        showAnswerBtn.addEventListener("click", showAnswer);
-
-        let clearRecordBtn = document.querySelector("#clearRecord");
-        clearRecordBtn.addEventListener("click", function () {
+        let InputNum = document.querySelector("#InputNumber");
+        let guessBtn = document.querySelector("#guess").addEventListener("click", guess);
+        let showAnswerBtn = document.querySelector("#showAnswer").addEventListener("click", showAnswer);
+        let playRecord = document.querySelector("#playRecord");
+        let restartBtn = document.querySelector("#restart").addEventListener("click", restart);
+        let guessTimesDOM = document.querySelector("#guessTimes");
+        let clearRecordBtn = document.querySelector("#clearRecord").addEventListener("click", function () {
             playRecord.innerHTML = "";
             guessTimes = 0;
             guessTimesDOM.innerHTML = `猜題次數 : ${guessTimes}`;
         });
-
-        let restartBtn = document.querySelector("#restart");
-        restartBtn.addEventListener("click", restart)
-
-        let playRecord = document.querySelector("#playRecord");
-
-        let guessTimesDOM = document.querySelector("#guessTimes");
+        
         window.onload = function () {
             createFourNumbers();
-
         }
 
-
         function guess() {
-            let theGuessNumberArr = theGuessNumberBtn.value.split("");
-            let theGuessNumStr = theGuessNumberBtn.value;
-            let checkSameNumber = new Set(theGuessNumberArr); //把重複的字刪除
+            let InputNumberArr = InputNum.value.split("");
+            let InputNumStr = InputNum.value;
+            let checkSameNumber = new Set(InputNumberArr); //把重複的字刪除
             let checkSameNumArr = [...checkSameNumber];
 
             //檢查是否輸入的是4位數字
-            if (isNaN((theGuessNumberBtn.value))) {
+            if (isNaN((InputNum.value))) {
                 alert("請輸入整數數字");
                 clearInput();
             }
             //檢查是否為4位數字
-            else if (theGuessNumberArr.length > 4) {
+            else if (InputNumberArr.length > 4) {
                 alert("請不要輸入超過4位數字");
                 clearInput();
             }
-            else if (theGuessNumberArr.length < 4) {
+            else if (InputNumberArr.length < 4) {
                 alert("請輸入剛好4位數字");
                 clearInput();
             }
@@ -99,24 +85,17 @@
                     }
                 }
                 guessTimes++;
-                console.log(`${theGuessNumStr} : ${countsA}A${countsB}B`);
+                console.log(`${InputNumStr} : ${countsA}A${countsB}B`);
                 guessTimesDOM.innerHTML = `猜題次數 : ${guessTimes}`;
-                playRecord.append(`${theGuessNumStr} : ${countsA}A${countsB}B`, document.createElement("br"));
+                playRecord.append(`${InputNumStr} : ${countsA}A${countsB}B`, document.createElement("br"));
                 if (countsA == 4) {
-                    alert(`恭喜答對~~~答案就是${theGuessNumStr}`)
+                    alert(`恭喜答對~~~答案就是${InputNumStr}`)
                 }
                 clearInput();
-
             }
-
-
         }
 
-
-
-
-
-        function createFourNumbers() {
+        function createFourNumbers(){
             while (ansArray.length < 4) {
                 //隨機產生0~9的數字
                 let idx = Math.floor(Math.random() * (10));
@@ -145,7 +124,7 @@
             guessTimesDOM.innerHTML = `猜題次數 : {guessTimes}`;
         }
         function clearInput() {
-            theGuessNumberBtn.value = "";
+            InputNum.value = "";
         }
 
 
