@@ -20,11 +20,7 @@
     </div>
 
     <script>
-
-        let answer;
-        let numArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-        let ansArray = [];
-        let num;
+        // let num;
         let countsA, countsB;
         let guessTimes = 0;
 
@@ -33,16 +29,19 @@
         let showAnswerBtn = document.querySelector("#showAnswer").addEventListener("click", showAnswer);
         let playRecord = document.querySelector("#playRecord");
         let restartBtn = document.querySelector("#restart").addEventListener("click", restart);
-        let guessTimesDOM = document.querySelector("#guessTimes");
+        let guessTimesText = document.querySelector("#guessTimes");
         let clearRecordBtn = document.querySelector("#clearRecord").addEventListener("click", function () {
             playRecord.innerHTML = "";
             guessTimes = 0;
-            guessTimesDOM.innerHTML = `猜題次數 : ${guessTimes}`;
+            guessTimesText.innerHTML = `猜題次數 : ${guessTimes}`;
         });
         
         window.onload = function () {
             createFourNumbers();
         }
+
+        let numArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let ansArray = [];
 
         function guess() {
             let InputNumberArr = InputNum.value.split("");
@@ -86,7 +85,7 @@
                 }
                 guessTimes++;
                 console.log(`${InputNumStr} : ${countsA}A${countsB}B`);
-                guessTimesDOM.innerHTML = `猜題次數 : ${guessTimes}`;
+                guessTimesText.innerHTML = `猜題次數 : ${guessTimes}`;
                 playRecord.append(`${InputNumStr} : ${countsA}A${countsB}B`, document.createElement("br"));
                 if (countsA == 4) {
                     alert(`恭喜答對~~~答案就是${InputNumStr}`)
@@ -95,6 +94,7 @@
             }
         }
 
+        let answer;
         function createFourNumbers(){
             while (ansArray.length < 4) {
                 //隨機產生0~9的數字
@@ -108,26 +108,26 @@
 
             answer = ansArray.join("");
             guessTimes = 0;
-            guessTimesDOM.innerHTML = `猜題次數 : ${guessTimes}`;
+            guessTimesText.innerHTML = `猜題次數 : ${guessTimes}`;
 
         }
 
         function showAnswer() {
             alert(`答案是 ${answer}`);
         }
+
         function restart() {
             playRecord.innerHTML = ""; //清空紀錄
             ansArray.length = 0;
             createFourNumbers(); //產生新的4位數字
             alert("請開始猜新密碼!");
             guessTimes = 0;
-            guessTimesDOM.innerHTML = `猜題次數 : {guessTimes}`;
+            guessTimesText.innerHTML = `猜題次數 : {guessTimes}`;
         }
+
         function clearInput() {
             InputNum.value = "";
         }
-
-
     </script>
 </body>
 
