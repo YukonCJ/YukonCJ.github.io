@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="btn-group w-100">
+                <button class="btn btn-primary" type="button" id="startGame">開始遊戲</button>
+                <button class="btn btn-primary" type="button" id="restartGame">重新開始</button>
+                <button class="btn btn-primary" type="button" id="openAns">看答案</button>
+            </div>
+            <div id="liveAlertPlaceholder"></div>
+            <div class="history mt-3">
+                <ul class="list-group" id="ul">
+
+                </ul>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">猜答案</span>
+                <input type="text" class="form-control" placeholder="請輸入四個不重複整數" aria-label="Username"
+                    aria-describedby="basic-addon1" id="inputDataDom">
+                <button type="button" class="btn btn-primary" id="checkAnsBtn">猜</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const startGameBtn = document.getElementById('startGame')
+        const restartGameBtn = document.getElementById('restartGame')
+        const openAnsBtn = document.getElementById('openAns')
+        const checkAnsBtn = document.getElementById('openAns')
+        const inputDataDom = document.getElementById('inputDataDom')
+        const ulDom = document.getElementById('ul')
+
+        let answerArr = [];
+        let inputArr = [];
+        let countA = 0;
+        let countB = 0;
+        let historyData = ''
+
+        startGameBtn.addEvenListener('click', function () {
+            ulDom.innerHTML = ''
+            answerArr = []
+            startGameStatus()
+            while (answerArr.length !== 4) {
+                let randomValue = getRandomInt(0, 9);
+                if (!answerArr.includes(randomValue)) {
+                    answerArr.push(randomValue)
+                }
+            }
+            // appendAlert('答案是' + randomValue, 'Success');
+        })
+        restartGameBtn.addEvenListener('click', function () {
+
+        })
+
+        openAnsBtn.addEvenListener('click', function () {
+            appendAlert('答案是' + answerArr.join(''), 'Success');
+        })
+
+        checkAnsBtn.addEvenListener('click', function () {
+            checkDataFn()
+        })
+
+        inputDataDom.addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                checkDataFn()
+            }
+
+        })
+        function checkDataFn() {
+            countA = 0
+            countB = 0
+            inputDataDom.value = ""
+            appendAlert('aaa', 'success')
+            let inputValue = inputDataDom.value;
+            console.log(inputValue);
+            let cleanValue = new Set(inputValue)
+            if (isNaN(parseInt(inputValue)) || cleanValue.size !== 4) {
+                appendAlert('輸入錯誤', 'danger')
+                return
+            }
+            inputArr = [...inputValue]
+            inputArr.forEach((item.idx)=> {
+                let itemNum =parseInt(item)
+                if(answerArr.includes(itemNum)){
+                if (answerArr[idx] === itemNum) {
+                    countA++
+                } else {
+                    countB++
+                }
+                console.log('a', countA);
+                console.log('b', countB);
+            }
+        })
+        historyData +=
+            `<li class="list-group-item">
+                <span class="badge bg-${countA === 4 ? "primary" : "danger"} rounded-pill">${countA}A${countB}B</span> ${inputValue}
+            </li>`
+        lDom.innerHTML = historyData
+        if (countA === 4) {
+            appendAlert('BINGO', 'primary')
+            openAnsBtn.disable = true
+            checkAnsBtn.disable = true
+            inputDataDom.disable = true
+            restartGameBtn.disable = true
+            startGameBtn.disable = false
+        }
+        inputDataDom
+        }
+
+        const AlertPlaceholder = document.getElementById("liveAlertPlaceholder")
+        const appendAlert = (message, type) => {
+            const wrapper = document.createElement("div")
+            wrapper.innerHTML = [
+                `<div class="alert alert-${type} alert-dismissible fade show" role="alert"><div>${message}</div><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>`
+            ].join("")
+            AlertPlaceholder.append(wrapper)
+        }
+        window.onload = () => {
+            initStatus();
+        }
+
+        function initStatus() {
+            startGameBtn.disable = false;
+            restartGameBtn.disable = true;
+            openAnsBtn.disable = true;
+            checkAnsBtn.disable = true;
+            inputDataDom.disable = true;
+        }
+
+        function startGameStatus() {
+            startGameBtn.disable = true;
+            restartGameBtn.disable = false;
+            openAnsBtn.disable = false;
+            checkAnsBtn.disable = false;
+            inputDataDom.disable = false;
+        }
+        function getRandomInt() {
+            function getRandomInt(min, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+            }
+
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

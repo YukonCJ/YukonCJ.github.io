@@ -9,6 +9,28 @@
 
 <body>
     <div class="container">
+        <div class="row">
+            <div class="d-grid gap-2 d-md-block">
+                <button class="btn btn-danger" type="button">Button</button>
+                <button class="btn btn-danger" type="button">Button</button>
+            </div>
+            <div class="history">
+                <ul class="list-group">
+                    <li class="list-group-item">An item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                    <li class="list-group-item">A fourth item</li>
+                    <li class="list-group-item">And a fifth one</li>
+                </ul>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">猜</span>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                    aria-describedby="basic-addon1">
+            </div>
+        </div>
+
+
         <h1>1A2B</h1>
         <input type="text" id="InputNumber">
         <button id="guess">Guess</button>
@@ -35,7 +57,7 @@
             guessTimes = 0;
             guessTimesText.innerHTML = `猜題次數 : ${guessTimes}`;
         });
-        
+
         window.onload = function () {
             createFourNumbers();
         }
@@ -95,7 +117,7 @@
         }
 
         let answer;
-        function createFourNumbers(){
+        function createFourNumbers() {
             while (ansArray.length < 4) {
                 //隨機產生0~9的數字
                 let idx = Math.floor(Math.random() * (10));

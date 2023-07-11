@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>行事曆</h1>
+        <h3>yyyy年mm月</h3>
+        <div class="btn-group mt-3" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-light" id="preMonth">Last mon</button>
+            <button type="button" class="btn btn-primary" id="thisMonth">This mon</button>
+            <button type="button" class="btn btn-light" id="nextMonth">Next mon</button>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr class="table-danger">
+                    <th scope="col">日</th>
+                    <th scope="col">一</th>
+                    <th scope="col">二</th>
+                    <th scope="col">三</th>
+                    <th scope="col">四</th>
+                    <th scope="col">五</th>
+                    <th scope="col">六</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <!-- 新增行程 Modal -->
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
+            Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="addModalLabel">新增行程</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- yyyymmdd -->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">DATE</span>
+                            <input type="text" class="form-control" placeholder="" aria-label=""
+                                aria-describedby="basic-addon1" disabled id="add-addon1">
+                        </div>
+                        <!-- tittle -->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Title</span>
+                            <input type="text" class="form-control" placeholder="" aria-label=""
+                                aria-describedby="basic-addon1" id="add-addon2">
+                        </div>
+                        <!-- context -->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">context</span>
+                            <input type="text" class="form-control" placeholder="" aria-label=""
+                                aria-describedby="basic-addon1" id="add-addon3">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
+                        <button type="button" class="btn btn-primary" id="add-addon4">ADD</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 編輯行程 Modal -->
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">
+            Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="addModalLabel">編輯行程</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- yyyymmdd -->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">DATE</span>
+                            <input type="text" class="form-control" placeholder="" aria-label=""
+                                aria-describedby="basic-addon1" id="edit-addon1">
+                        </div>
+                        <!-- tittle -->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Title</span>
+                            <input type="text" class="form-control" placeholder="" aria-label=""
+                                aria-describedby="basic-addon1" id="edit-addon2">
+                        </div>
+                        <!-- context -->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">context</span>
+                            <input type="text" class="form-control" placeholder="" aria-label=""
+                                aria-describedby="basic-addon1" id="edit-addon3">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
+                        <button type="button" class="btn btn-primary" id="edit-addon4">MODIFY</button>
+                        <button type="button" class="btn btn-danger" id="edit-addon5">DEL</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script>
+        const myAddModal = new bootstrap.Modal('#addModal', {
+            keyboard: false
+        })
+        const myEditModal = new bootstrap.Modal('#editModal', {
+            keyboard: false
+        })
+
+        let today = new Date()
+        let year = today.getFullYear()
+        let month = today.getMonth()
+        console.log(month);
+        
+
+        const tbodyDOM = document.querySelector('tbody')
+        const preMonthBtn = document.getElementById('preMonth')
+        const thisMonthBtn = document.getElementById('thisMonth')
+        const nextMonthBtn = document.getElementById('nextMonth')
+        const yearMonthDOM = document.querySelector('h3')
+
+        const AddOn1DOM = document.getElementById('add-addon1')
+        const AddOn2DOM = document.getElementById('add-addon2')
+        const AddOn3DOM = document.getElementById('add-addon3')
+        const AddOn4Btn = document.getElementById('add-addon4')
+
+        const editOn1DOM = document.getElementById('edit-addon1')
+        const editOn2DOM = document.getElementById('edit-addon2')
+        const editOn3DOM = document.getElementById('edit-addon3')
+        const editOn4Btn = document.getElementById('edit-addon4')
+        const editOn5Btn = document.getElementById('edit-addon5')
+        preMonthBtn.addEventListener("click", function () {
+            month--
+            if (month === -1) {
+                year--
+                month = 11
+            }
+            renderDate()
+        })
+        thisMonthBtn.addEventListener('click', function () {
+            let thisDate = new Date()
+            month = thisDate.getMonth()
+            year = thisDate.getFullYear()
+            renderDate()
+        })
+        nextMonthBtn.addEventListener('click', function () {
+            month++
+            if (month > 11) {
+                year++
+                month = 0
+            }
+            renderDate()
+        })
+
+        AddOn4Btn.addEventListener('click', function () {
+            let key = (AddOn1DOM.value).split('-').join('')
+            let obj ={
+                title: AddOn2DOM.value,
+                content: AddOn3DOM.value
+            }
+            let dataArray =[]
+            let data = getLocalStorage(key)
+            if(data == null){
+                dataArray.push(obj)
+            }else{
+                dataArray = data
+                dataArray.push(obj)
+            }
+            setLocalStorage(key,dataArray)
+            myAddModal.hide()
+            AddOn3DOM.value =''
+            AddOn2DOM.value =''
+
+        })
+        editOn4Btn.addEventListener('click', function () {
+
+        })
+        editOn5Btn.addEventListener('click', function () {
+
+        })
+        window.onload = function () {
+            renderDate()
+        }
+        
+        function renderDate() {
+            tbodyDOM.innerHTML = ''
+            yearMonthDOM.innerText = `${year}年 ${month + 1}月`
+            let dayOfMonth = new Date(year, month, 1).getDay()
+            console.log(dayOfMonth);
+            let dateOfMonth = new Date(year, month + 1, 0).getDate()
+            let allDays = dateOfMonth + dayOfMonth
+            let weeks = Math.ceil(allDays / 7) //無條件進位
+            let day = 1
+            for (let i = 0; i < weeks; i++) {
+                let trDom = document.createElement('tr')
+                for (let j = 0; j < 7; j++) {
+                    let tdDom = document.createElement('td')
+                    if (i === 0 && j < dayOfMonth) {
+                        tdDom.innerText = 'pre'
+                    } else {
+                        if (day <= dateOfMonth) {
+                            tdDom.innerText = day
+                            tdDom.addEventListener('click', tdClickFn.bind(null,year,month,day))
+                            day++
+                        } else {
+                            tdDom.innerText = 'next'
+                        }
+                    }
+                    trDom.append(tdDom)
+                }
+                tbodyDOM.append(trDom)
+            }
+        }
+        function tdClickFn(year,month,day) {
+            AddOn1DOM.value=`${year}-${month+1}-${day}`
+            myAddModal.show()
+        }
+        function getLocalStorage(key){
+            let data = JSON.parse(localStorage.getItem(key))
+            return data
+        }
+        function setLocalStorage(key,value){
+            localStorage.setItem(key,JSON.stringify(value))
+        }
+    </script>
+</body>
+</html>
