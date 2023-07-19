@@ -79,49 +79,6 @@
         integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        let companies = [], data = [];
-        let container, table, thead, tbody;
-        window.onload = function () {
-            marketingShare.data.forEach(item => {
-                companies.push(item.company);
-                data.push(item.ratio);
-            });
-            container = document.getElementById("table-container")
-            table = document.createElement('table')
-            table.setAttribute("class", "table-marketingShare table table-bordered table-striped table-dark")
-            thead = document.createElement('thead')
-            tbody = document.createElement('tbody')
-
-            drawPieChart('pie', companies, data);
-        }
-        function Createthead() {
-            let thead_tr = document.createElement('tr');
-            marketingShare.title.forEach(title => {
-                let th = document.createElement('th');
-                th.innerText = title;
-                thead_tr.append(th);
-            })
-            thead.append(thead_tr);
-            table.append(thead);
-        }
-        function createTbody() {
-            for (let i = 0; i < marketingShare.data.length; i++) {
-                //新增row
-                let tr = document.createElement("tr");
-                //因為markingShare.data是陣列包物件,物件不能用foreach拿出來,先把每一筆資料value轉成陣列
-                let dataArr = Object.values(marketingShare.data[i]);
-                //有10筆資料陣列,用foreach逐一拿出來放成一row
-                dataArr.forEach((x) => {
-                    let td = document.createElement("td");
-                    td.innerText = x;
-                    tr.append(td);
-                });
-                tbody.append(tr);
-            };
-            table.append(tbody);
-            container.append(table);
-        }
-        //第一個參數為公司陣列, 第二個參數為資料陣列
         function drawPieChart(type, companyArray, dataArray) {
             //Pie Chart圓餅圖
             let ctxPie = document.getElementById("mkShare");
@@ -165,8 +122,58 @@
                 }
             });
         }
-        function createTable() {
+    </script>
+    <script>
+        let companies = [], data = [];
+        let container, table, thead, tbody;
+
+        window.onload = function () {
+            Createthead();
+            createTbody();
+            marketingShare.data.forEach(item => {
+                companies.push(item.Name);
+                data.push(item.Ratio);
+            });
+
+            container = document.getElementById("table-container")
+            table = document.createElement('table')
+            table.setAttribute("class", "table-marketingShare table table-bordered table-striped table-dark")
+            thead = document.createElement('thead')
+            tbody = document.createElement('tbody')
+
+            drawPieChart('pie', companies, data);
         }
+
+        function Createthead() {
+            let thead_tr = document.createElement('tr');
+            marketingShare.title.forEach(title => {
+                let th = document.createElement('th');
+                th.innerText = title;
+                thead_tr.append(th);
+            })
+            thead.append(thead_tr);
+            table.append(thead);
+        }
+        function createTbody() {
+            for (let i = 0; i < marketingShare.data.length; i++) {
+                //新增row
+                let tr = document.createElement("tr");
+                //因為markingShare.data是陣列包物件,物件不能用foreach拿出來,先把每一筆資料value轉成陣列
+                let dataArr = Object.values(marketingShare.data[i]);
+                //有10筆資料陣列,用foreach逐一拿出來放成一row
+                dataArr.forEach((x) => {
+                    let td = document.createElement("td");
+                    td.innerText = x;
+                    tr.append(td);
+                });
+                tbody.append(tr);
+            };
+            table.append(tbody);
+            container.append(table);
+        }
+        //第一個參數為公司陣列, 第二個參數為資料陣列
+
+        
         const marketingShare = {
             version: "v1.0",
             public: "2021/12/31",
