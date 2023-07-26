@@ -36,9 +36,9 @@
         </table>
         <!-- 新增行程 Modal -->
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
+        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
             Launch demo modal
-        </button>
+        </button> -->
 
         <!-- Modal -->
         <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
@@ -77,9 +77,9 @@
         </div>
         <!-- 編輯行程 Modal -->
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">
+        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">
             Launch demo modal
-        </button>
+        </button> -->
 
         <!-- Modal -->
         <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
@@ -94,7 +94,7 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text">DATE</span>
                             <input type="text" class="form-control" placeholder="" aria-label=""
-                                aria-describedby="basic-addon1" id="edit-addon1">
+                                aria-describedby="basic-addon1" id="edit-addon1" disabled>
                         </div>
                         <!-- tittle -->
                         <div class="input-group mb-3">
@@ -122,6 +122,8 @@
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
     <script>
+
+        //Modal
         const myAddModal = new bootstrap.Modal('#addModal', {
             keyboard: false
         })
@@ -129,13 +131,14 @@
             keyboard: false
         })
 
+        //宣告
         let today = new Date()
         let year = today.getFullYear()
         let month = today.getMonth()
-        console.log(month);
         
-
+        //DOM
         const tbodyDOM = document.querySelector('tbody')
+
         const preMonthBtn = document.getElementById('preMonth')
         const thisMonthBtn = document.getElementById('thisMonth')
         const nextMonthBtn = document.getElementById('nextMonth')
@@ -151,6 +154,8 @@
         const editOn3DOM = document.getElementById('edit-addon3')
         const editOn4Btn = document.getElementById('edit-addon4')
         const editOn5Btn = document.getElementById('edit-addon5')
+
+
         preMonthBtn.addEventListener("click", function () {
             month--
             if (month === -1) {
@@ -174,12 +179,15 @@
             renderDate()
         })
 
+        //Modal ADD按鈕
         AddOn4Btn.addEventListener('click', function () {
-            let key = (AddOn1DOM.value).split('-').join('')
+            let key = (AddOn1DOM.value)
             let obj ={
                 title: AddOn2DOM.value,
                 content: AddOn3DOM.value
             }
+
+            //find localStorage
             let dataArray =[]
             let data = getLocalStorage(key)
             if(data == null){
@@ -188,31 +196,82 @@
                 dataArray = data
                 dataArray.push(obj)
             }
+
+            //write localStorage
             setLocalStorage(key,dataArray)
             myAddModal.hide()
-            AddOn3DOM.value =''
-            AddOn2DOM.value =''
-
+            renderDate()
         })
+
+        //Modal EDIT按鈕
         editOn4Btn.addEventListener('click', function () {
 
-        })
-        editOn5Btn.addEventListener('click', function () {
+            //取 修改後內容
+            let editDate = editOn1DOM.value
+            let editTitle = editOn2DOM.value
+            let editContent = editOn3DOM.value
+
+            //取 修改後index
+            let index =editOn1DOM.getAttribute('data-index')
+            console.log(index);
+
+            //取 localStorage 資料
+            let data = getLocalStorage(editDate)
+
+            let obj = {
+                title : editTitle,
+                content : editContent
+            }
+            
+            //更新資料
+            data[index] = obj
+
+            setLocalStorage(editDate,data)
+            myEditModal.hide()
+            renderDate()
 
         })
+
+        //Modal DEL按鈕
+        editOn5Btn.addEventListener('click', function () {
+            
+            //刪除的日期
+            let editDate =editOn1DOM.value
+
+            //刪除index
+            let index = editOn1DOM.getAttribute('data-index')
+
+            //取 localStorage
+            let data = getLocalStorage(editDate)
+
+            //刪除資料
+            data.splice(index,1)
+
+            setLocalStorage(editDate,data)
+            myEditModal.hide()
+            renderDate()
+
+        })
+
+
         window.onload = function () {
             renderDate()
         }
         
         function renderDate() {
+
+            let day =1
             tbodyDOM.innerHTML = ''
             yearMonthDOM.innerText = `${year}年 ${month + 1}月`
+
             let dayOfMonth = new Date(year, month, 1).getDay()
             console.log(dayOfMonth);
+            
             let dateOfMonth = new Date(year, month + 1, 0).getDate()
             let allDays = dateOfMonth + dayOfMonth
             let weeks = Math.ceil(allDays / 7) //無條件進位
-            let day = 1
+
+            //tr
             for (let i = 0; i < weeks; i++) {
                 let trDom = document.createElement('tr')
                 for (let j = 0; j < 7; j++) {
@@ -222,7 +281,32 @@
                     } else {
                         if (day <= dateOfMonth) {
                             tdDom.innerText = day
-                            tdDom.addEventListener('click', tdClickFn.bind(null,year,month,day))
+                            let key =`${year}-${month+1}-${day}`
+                            let data = getLocalStorage(key)
+
+                            if (data!=null){
+                                let ulDom = document.createElement('ul')
+                                data.forEach((item,idx) => {
+                                    let liDom =document.createElement('li')
+                                    liDom.innerText=item.title
+
+                                    let editDay = day
+                                    liDom.addEventListener('click',function(e){
+                                        myEditModal.show()
+
+                                        let editDate = `${year}-${month+1}-${editDay}`
+                                        editOn1DOM.value = editDate
+                                        editOn2DOM.value = item.title
+                                        editOn3DOM.value = item.content
+                                        editOn1DOM.setAttribute('data-index',idx)
+
+                                        e.stopPropagation()
+                                    })
+                                    ulDom.append(liDom)
+                                });
+                                tdDom.append(ulDom)
+                            }
+                            tdDom.addEventListener('click',tdClickFn.bind(null,year,month,day))
                             day++
                         } else {
                             tdDom.innerText = 'next'
@@ -236,6 +320,8 @@
         function tdClickFn(year,month,day) {
             AddOn1DOM.value=`${year}-${month+1}-${day}`
             myAddModal.show()
+            AddOn2DOM.value =''
+            AddOn3DOM.value =''
         }
         function getLocalStorage(key){
             let data = JSON.parse(localStorage.getItem(key))
