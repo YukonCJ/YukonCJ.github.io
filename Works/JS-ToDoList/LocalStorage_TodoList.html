@@ -29,16 +29,17 @@
         const addDom = document.getElementById('btn-add')
         const addInput = document.getElementById('add_input')
         const body = document.getElementById('history')
-        let editBtn, saveBtn, delBtn;
+        let editBtn, saveBtn, delBtn, ckBox;
 
         window.onload = function () {
             render();
         }
+
         addDom.addEventListener('click', function () {
             let key = "Text"
             let obj = {
                 content: addInput.value,
-                status: false
+                status: ""
             }
             let dataArray = []
             let data = getLocalStorage(key)
@@ -59,14 +60,15 @@
             body.innerHTML = ''
             let key = "Text"
             let data = getLocalStorage(key)
+
             //取localStorage value
             if (data != null) {
                 data.forEach((item, idx) => {
                     body.innerHTML +=
                         `<div class="input-group mb-3">
                             <div class="input-group-text">
-                                <input class="form-check-input mt-0" type="checkbox" value=""
-                                    aria-label="Checkbox for following text input">
+                                <input class="form-check-input mt-0 checkBox" type="checkbox" value=""
+                                    aria-label="Checkbox for following text input" id="" data-index="${idx}" ${item.status}>
                             </div>
                             <input type="text" class="form-control inputBox" aria-label="Text input with checkbox" value="${item.content}" id="" disabled>
                             
@@ -76,15 +78,34 @@
                             
                             <button class="btn btn-danger btn-outline-secondary text-white delBtn" type="button" id="" data-index="${idx}">Del</button>
                         </div>`
+
                     //--Edit btn add監聽
+                    ckBox = document.querySelectorAll('.checkBox');
                     editBtn = document.querySelectorAll('.editBtn');
                     saveBtn = document.querySelectorAll('.saveBtn');
                     delBtn = document.querySelectorAll('.delBtn');
-                    console.log(editBtn);
                     editFunc();
                     saveFunc();
                     delFunc();
+                    ckBox.forEach(item => {
+                        item.addEventListener('change', (e) => {
+                            //--ask btn index
+                            // console.log(e.currentTarget.checked);
+                            let index = e.target.getAttribute('data-index');
 
+                            let key = "Text";
+                            dataArray = getLocalStorage(key);
+                            // console.log(item.checked);
+                            if(item.checked){
+                                dataArray[index].status = "checked";
+                            }else{
+                                dataArray[index].status = "";
+                            }
+
+                            setLocalStorage(key, dataArray);
+                        })
+
+                    })
                 })
 
             }
