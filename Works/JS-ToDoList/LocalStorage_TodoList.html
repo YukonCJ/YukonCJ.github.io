@@ -87,31 +87,34 @@
                     editFunc();
                     saveFunc();
                     delFunc();
-                    ckBox.forEach(item => {
-                        item.addEventListener('change', (e) => {
-                            //--ask btn index
-                            // console.log(e.currentTarget.checked);
-                            let index = e.target.getAttribute('data-index');
-
-                            let key = "Text";
-                            dataArray = getLocalStorage(key);
-                            // console.log(item.checked);
-                            if(item.checked){
-                                dataArray[index].status = "checked";
-                            }else{
-                                dataArray[index].status = "";
-                            }
-
-                            setLocalStorage(key, dataArray);
-                        })
-
-                    })
+                    ckBoxFunc();
                 })
 
             }
 
         }
 
+        function ckBoxFunc() {
+            ckBox.forEach(item => {
+                item.addEventListener('change', (e) => {
+                    //--ask btn index
+                    // console.log(e.currentTarget.checked);
+                    let index = e.target.getAttribute('data-index');
+
+                    let key = "Text";
+                    dataArray = getLocalStorage(key);
+                    // console.log(item.checked);
+                    if (item.checked) {
+                        dataArray[index].status = "checked";
+                    } else {
+                        dataArray[index].status = "";
+                    }
+
+                    setLocalStorage(key, dataArray);
+                })
+
+            })
+        }
 
         function editFunc() {
             editBtn.forEach(item => {
