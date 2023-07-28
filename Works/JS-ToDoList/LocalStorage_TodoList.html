@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <div class="container">
+        <div class="row">
+            <!-- input 對話框 -->
+            <div class="input-group my-3 ">
+                <input type="text" class="form-control" placeholder="新增備忘錄" aria-label="新增備忘錄"
+                    aria-describedby="button-addon2" id="add_input">
+                <button class="btn btn-primary btn-outline-secondary text-white" type="button" id="btn-add">ADD</button>
+            </div>
+            <div id="history"></div>
+        </div>
+    </div>
+    <script>
+        // let today = new Date();
+        const addDom = document.getElementById('btn-add')
+        const addInput = document.getElementById('add_input')
+        const body = document.getElementById('history')
+        let editBtn, saveBtn, delBtn;
+
+        window.onload = function () {
+            render();
+        }
+        addDom.addEventListener('click', function () {
+            let key = "Text"
+            let obj = {
+                content: addInput.value,
+                status: false
+            }
+            let dataArray = []
+            let data = getLocalStorage(key)
+
+            if (data == null) {
+                dataArray.push(obj)
+            } else {
+                // dataArray 
+                dataArray = data
+                dataArray.push(obj)
+            }
+            setLocalStorage(key, dataArray)
+            addInput.value = ''
+            render();
+        })
+
+        function render() {
+            body.innerHTML = ''
+            let key = "Text"
+            let data = getLocalStorage(key)
+            //取localStorage value
+            if (data != null) {
+                data.forEach((item, idx) => {
+                    body.innerHTML +=
+                        `<div class="input-group mb-3">
+                            <div class="input-group-text">
+                                <input class="form-check-input mt-0" type="checkbox" value=""
+                                    aria-label="Checkbox for following text input">
+                            </div>
+                            <input type="text" class="form-control inputBox" aria-label="Text input with checkbox" value="${item.content}" id="" disabled>
+                            
+                            <button class="btn btn-greyf btn-outline-secondary editBtn" type="button" id="" data-index="${idx}" style="display:block;">Edit</button>
+                            
+                            <button class="btn btn-greyf btn-outline-secondary saveBtn" type="button" id="" data-index="${idx}" style="display:none;">Save</button>
+                            
+                            <button class="btn btn-danger btn-outline-secondary text-white delBtn" type="button" id="" data-index="${idx}">Del</button>
+                        </div>`
+                    //--Edit btn add監聽
+                    editBtn = document.querySelectorAll('.editBtn');
+                    saveBtn = document.querySelectorAll('.saveBtn');
+                    delBtn = document.querySelectorAll('.delBtn');
+                    console.log(editBtn);
+                    editFunc();
+                    saveFunc();
+                    delFunc();
+
+                })
+
+            }
+
+        }
+
+
+        function editFunc() {
+            editBtn.forEach(item => {
+                item.addEventListener('click', function (e) {
+                    //--ask btn index
+                    //let index = e.target.getAttribute('data-index');
+                    let index = e.target.dataset.index;
+                    console.log(index);
+                    let inputGroup = document.querySelectorAll('.inputBox');
+                    console.log(inputGroup);
+
+                    //--switch
+                    inputGroup[index].disabled = false;
+                    editBtn[index].style.display = "none";
+                    saveBtn[index].style.display = "block";
+
+                })
+            })
+        }
+
+        function saveFunc() {
+            saveBtn.forEach(item => {
+                item.addEventListener('click', function (e) {
+                    //--ask btn index
+                    //let index = e.target.getAttribute('data-index');
+                    let index = e.target.dataset.index;
+                    console.log(index);
+                    let inputGroup = document.querySelectorAll('.inputBox');
+
+                    //--ask all dataArray & overwrite
+                    let key = "Text"
+                    let dataArray = getLocalStorage(key)
+                    dataArray[index].content = inputGroup[index].value;
+                    console.log(inputGroup[index]);
+                    setLocalStorage(key, dataArray);
+
+                    //--switch
+                    inputGroup[index].disabled = true;
+                    saveBtn[index].style.display = "none";
+                    editBtn[index].style.display = "block";
+
+                })
+            })
+        }
+
+        function delFunc() {
+            delBtn.forEach(item => {
+                item.addEventListener('click', function (e) {
+                    //--ask btn index
+                    //let index = e.target.getAttribute('data-index');
+                    let index = e.target.dataset.index;
+                    // console.log(index);
+                    let inputGroup = document.querySelectorAll('.inputBox');
+
+                    //--ask all dataArray & overwrite
+                    let key = "Text";
+                    let dataArray = getLocalStorage(key);
+                    dataArray.splice(index, 1);
+                    setLocalStorage(key, dataArray);
+                    render();
+
+                })
+            })
+        }
+
+        function getLocalStorage(key) {
+            let data = JSON.parse(localStorage.getItem(key))
+            return data
+        }
+
+        function setLocalStorage(key, value) {
+            localStorage.setItem(key, JSON.stringify(value))
+        }
+    </script>
+</body>
+
+</html>
