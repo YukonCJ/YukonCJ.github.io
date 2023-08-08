@@ -12,8 +12,12 @@
             font-size: 18px;
         }
 
+        .searchbar {
+            background: linear-gradient(.647turn, #1a0a47cc, #0d1b4599 .01%, #0d1b45cc 51.04%, #0d1b45 99.1%);
+        }
+
         .card-group .card {
-            /* width: 230px; */
+            width: 230px;
         }
 
         .comment {
@@ -38,7 +42,8 @@
         }
 
         .card-head a,
-        .comment a {
+        .comment a,
+        .locating p {
             text-decoration: none;
             color: #da3743;
         }
@@ -79,25 +84,29 @@
         </svg>
     </div>
     </div> -->
-    <div class="searchbar p-5 bg-primary">
-        <h1 class="text-center text-black fs-3 fs-lg-5">OpenTable | 餐廳，隨時訂</h1>
-        <div class="btn-group col-12 mb-2" role="group" aria-label="Basic example">
-            <button type="button" class="btn bg-light btn-outline-secondary text-black">yyyy年mm月dd日</button>
-            <button type="button" class="btn bg-light btn-outline-secondary text-black">下午oo:oo</button>
-            <!-- <button type="button" class="btn bg-light btn-outline-secondary">2位</button> -->
+    <div class="searchbar p-5">
+        <h1 class="text-center text-light fs-3 fs-lg-5">OpenAble | 餐廳，隨時訂</h1>
+        <div class="btns col-12 d-lg-flex ms-auto">
+            <div class="btn-group col-12 col-lg-5 mb-2" role="group" aria-label="Basic example">
+                <button type="button" class="btn bg-light btn-outline-secondary text-black">yyyy年mm月dd日</button>
+                <button type="button" class="btn bg-light btn-outline-secondary text-black">下午oo:oo</button>
+                <button type="button" class="btn bg-light btn-outline-secondary text-black d-none d-md-flex">2位</button>
+            </div>
+            <div class="btn-group col-12 mb-2 d-md-none" role="group" aria-label="Basic example">
+                <button type="button" class="btn bg-light btn-outline-secondary text-start text-black">2位</button>
+            </div>
+            <div class="col-12 d-flex flex-wrap flex-md-nowrap">
+                <button type="button"
+                    class="btn col-12 col-md-6 col-lg-3 mb-2 bg-light btn-outline-secondary text-start">地點、餐廳或料理</button>
+                <button type="button"
+                    class="btn col-12 col-md-6 col-lg-2 mb-2 bg-danger text-center text-light">開始搜尋</button>
+            </div>
         </div>
-        <div class="btn-group col-12 mb-2" role="group" aria-label="Basic example">
-            <button type="button" class="btn bg-light btn-outline-secondary text-start text-black">2位</button>
-        </div>
-        <div class="btn-group col-12 mb-2" role="group" aria-label="Basic example">
-            <button type="button" class="btn bg-light btn-outline-secondary text-start">地點、餐廳或料理</button>
-        </div>
-        <button type="button" class="btn col-12 bg-danger text-center text-light">開始搜尋</button>
     </div>
     <div class="container">
         <div class="row">
             <div class="locating my-3">
-                <p>您現在的地點在臺北市嗎？ 對嗎？</p>
+                <div>您現在的地點在臺北市嗎？ 對嗎？</div>
                 <p>獲得現在地點</p>
             </div>
             <div class="cardslist mostVisitedc mb-3">
@@ -155,7 +164,7 @@
                     <p>更新時間:2023/1/1</p>
                     <div>Diners' Choice大獎是依據各位食客預訂、用餐和評論等相關資料作為評選標準。僅有通過驗證的食客能夠在OpenTable評論餐廳，因此我們的資料不會有灌水不實之虞。</div>
                 </div>
-                <div class="card text-center col-12">
+                <div class="card col-12">
                     <div class="card-header">
                         <ul class="nav nav-tabs card-header-tabs">
                             <li class="nav-item">
@@ -175,21 +184,22 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="card-body">
-                        <img src="https://picsum.photos/390/220/?=8">
-                        <h5 class="card-title">
+                    <div class="card-body ">
+                        <img src="https://picsum.photos/390/220/?=8" class="w-100 mb-2">
+                        <h5 class="card-title text-start">
                             海底撈火鍋 慶城店
                         </h5>
-                        <div class="card-text">
+                        <div class="card-text text-start">
                             <span>★★★★★</span>・
                             <span>亞洲菜</span>・
                             <span>$$$$$</span>・
                             <span>松山區</span>
                         </div>
-                        <div class="detail">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae consectetur ad, quisquam rem nihil blanditiis?
+                        <div class="detail mb-2 text-start">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae consectetur ad, quisquam
+                            rem nihil blanditiis?
                         </div>
-                        <a href="#" class="btn btn-outline-danger">Go somewhere</a>
+                        <a href="#" class="btn btn-outline-danger">尋找下一個可訂位的時段</a>
                     </div>
                 </div>
             </div>
