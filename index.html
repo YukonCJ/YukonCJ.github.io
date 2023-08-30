@@ -1,29 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        a{
-            display: block;
+        body {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #c70039;
+            border-radius: 50%;
+        }
+
+        .works a,
+        .head h1 {
+            margin: auto;
             text-decoration: none;
-            color: brown;
-            font-weight: 600;
-            font-size: 20px;
-            padding: 5px;
+            font-size: 24px;
+            background: linear-gradient(-45deg, #571845, #c70039);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            padding: 5px 0;
         }
-        a::before{
-            content: "👉 ";
+
+        .works {
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            left: 0;
+            top: 0;
         }
-        .works{
-            margin: 10px;
-        }
+
     </style>
 </head>
+
 <body>
     <div class="head">
-
     </div>
     <div class="works">
         <a href="./Works/0524cat/Anilove.html">ANILOVE</a>
@@ -44,4 +67,5 @@
 
     </div>
 </body>
+
 </html>
