@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.2.0/swiper-bundle.min.css"
+        integrity="sha512-s6khMl5GDS1HbQ5/SwL1wzMayPwHXPjKoBN5kHUTDqKEPkkGyEZWKyH2lQ3YO2q3dxueG3rE0NHjRawMHd2b6g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+            position: relative;
+            height: 100%;
+        }
+
+        .swiper {
+            display: flex;
+            justify-content: center;
+            /* position: relative; */
+        }
+
+        .swiper-button-prev::after {
+            position: relative;
+            left: -12px;
+            color: #da3743;
+        }
+
+        .swiper-button-next::after {
+            position: relative;
+            right: -12px;
+        }
+
+        .card-group {
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            white-space: hidden;
+        }
+
+        ._card {
+            /* width: 200px; */
+            border: .5px solid #495057;
+            border-radius: 10px;
+        }
+
+        ._card img {
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            height: 132px;
+            width: 100%;
+        }
+
+        .card-body {
+            padding: 10px;
+        }
+
+        .title,
+        .star,
+        .info,
+        .bookedtimes {
+            margin-bottom: 10px;
+        }
+
+        .text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        ._btn {
+            display: inline-block;
+            padding: 8px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            background: #da3743;
+            margin-left: auto;
+        }
+        @media screen and (max-width:768px){
+            .swiper-button-next,.swiper-button-prev{
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+
+            <div class="swiper mySwiper">
+                <div class="card-group swiper-wrapper">
+                    <div class="_card swiper-slide">
+                        <div class="pic"><img src="https://picsum.photos/300/100/?=9" class="" alt=""></div>
+                        <div class="card-body">
+                            <h3 class="title">海底撈火鍋 慶城店1</h3>
+                            <div class="text">
+                                <div class="star">
+                                    <span>★★★★★</span>
+                                    <span>・</span>
+                                    <span>0則評論</span>
+                                </div>
+                                <div class="info">
+                                    <span>亞洲菜</span>
+                                    <span>・</span>
+                                    <span>$$$$$</span>
+                                    <span>・</span>
+                                    <span>松山區</span>
+                                </div>
+                                <div class="bookedtimes">
+                                    <i class="fa-solid fa-chart-line" style="color: #000;"></i>
+                                    <span>今天已預訂0次</span>
+                                </div>
+                            </div>
+                            <a href="/" class="_btn">下午00:00</a>
+                        </div>
+                    </div>
+                    <div class="_card swiper-slide">
+                        <div class="pic"><img src="https://picsum.photos/300/100/?=10" class="" alt=""></div>
+                        <div class="card-body">
+                            <h3 class="title">海底撈火鍋 慶城店2</h3>
+                            <div class="text">
+                                <div class="star">
+                                    <span>★★★★★</span>
+                                    <span>・</span>
+                                    <span>0則評論</span>
+                                </div>
+                                <div class="info">
+                                    <span>亞洲菜</span>
+                                    <span>・</span>
+                                    <span>$$$$$</span>
+                                    <span>・</span>
+                                    <span>松山區</span>
+                                </div>
+                                <div class="bookedtimes">
+                                    <i class="fa-solid fa-chart-line" style="color: #000;"></i>
+                                    <span>今天已預訂0次</span>
+                                </div>
+                            </div>
+                            <a href="/" class="_btn">下午00:00</a>
+                        </div>
+                    </div>
+                    <div class="_card swiper-slide">
+                        <div class="pic"><img src="https://picsum.photos/300/100/?=11" class="" alt=""></div>
+                        <div class="card-body">
+                            <h3 class="title">海底撈火鍋 慶城店3</h3>
+                            <div class="text">
+                                <div class="star">
+                                    <span>★★★★★</span>
+                                    <span>・</span>
+                                    <span>0則評論</span>
+                                </div>
+                                <div class="info">
+                                    <span>亞洲菜</span>
+                                    <span>・</span>
+                                    <span>$$$$$</span>
+                                    <span>・</span>
+                                    <span>松山區</span>
+                                </div>
+                                <div class="bookedtimes">
+                                    <i class="fa-solid fa-chart-line" style="color: #000;"></i>
+                                    <span>今天已預訂0次</span>
+                                </div>
+                            </div>
+                            <a href="/" class="_btn">下午00:00</a>
+                        </div>
+                    </div>
+                    <div class="_card swiper-slide">
+                        <div class="pic"><img src="https://picsum.photos/300/100/?=12" class="" alt=""></div>
+                        <div class="card-body">
+                            <h3 class="title">海底撈火鍋 慶城店4</h3>
+                            <div class="text">
+                                <div class="star">
+                                    <span>★★★★★</span>
+                                    <span>・</span>
+                                    <span>0則評論</span>
+                                </div>
+                                <div class="info">
+                                    <span>亞洲菜</span>
+                                    <span>・</span>
+                                    <span>$$$$$</span>
+                                    <span>・</span>
+                                    <span>松山區</span>
+                                </div>
+                                <div class="bookedtimes">
+                                    <i class="fa-solid fa-chart-line" style="color: #000;"></i>
+                                    <span>今天已預訂0次</span>
+                                </div>
+                            </div>
+                            <a href="/" class="_btn">下午00:00</a>
+                        </div>
+                    </div>
+                    <div class="_card swiper-slide">
+                        <div class="pic"><img src="https://picsum.photos/300/100/?=13" class="" alt=""></div>
+                        <div class="card-body">
+                            <h3 class="title">海底撈火鍋 慶城店5</h3>
+                            <div class="text">
+                                <div class="star">
+                                    <span>★★★★★</span>
+                                    <span>・</span>
+                                    <span>0則評論</span>
+                                </div>
+                                <div class="info">
+                                    <span>亞洲菜</span>
+                                    <span>・</span>
+                                    <span>$$$$$</span>
+                                    <span>・</span>
+                                    <span>松山區</span>
+                                </div>
+                                <div class="bookedtimes">
+                                    <i class="fa-solid fa-chart-line" style="color: #000;"></i>
+                                    <span>今天已預訂0次</span>
+                                </div>
+                            </div>
+                            <a href="/" class="_btn">下午00:00</a>
+                        </div>
+                    </div>
+                    <div class="_card swiper-slide">
+                        <div class="pic"><img src="https://picsum.photos/300/100/?=14" class="" alt=""></div>
+                        <div class="card-body">
+                            <h3 class="title">海底撈火鍋 慶城店6</h3>
+                            <div class="text">
+                                <div class="star">
+                                    <span>★★★★★</span>
+                                    <span>・</span>
+                                    <span>0則評論</span>
+                                </div>
+                                <div class="info">
+                                    <span>亞洲菜</span>
+                                    <span>・</span>
+                                    <span>$$$$$</span>
+                                    <span>・</span>
+                                    <span>松山區</span>
+                                </div>
+                                <div class="bookedtimes">
+                                    <i class="fa-solid fa-chart-line" style="color: #000;"></i>
+                                    <span>今天已預訂0次</span>
+                                </div>
+                            </div>
+                            <a href="/" class="_btn">下午00:00</a>
+                        </div>
+                    </div>
+                    <div class="_card swiper-slide">
+                        <div class="pic"><img src="https://picsum.photos/300/100/?=15" class="" alt=""></div>
+                        <div class="card-body">
+                            <h3 class="title">海底撈火鍋 慶城店7</h3>
+                            <div class="text">
+                                <div class="star">
+                                    <span>★★★★★</span>
+                                    <span>・</span>
+                                    <span>0則評論</span>
+                                </div>
+                                <div class="info">
+                                    <span>亞洲菜</span>
+                                    <span>・</span>
+                                    <span>$$$$$</span>
+                                    <span>・</span>
+                                    <span>松山區</span>
+                                </div>
+                                <div class="bookedtimes">
+                                    <i class="fa-solid fa-chart-line" style="color: #000;"></i>
+                                    <span>今天已預訂0次</span>
+                                </div>
+                            </div>
+                            <a href="/" class="_btn">下午00:00</a>
+                        </div>
+                    </div>
+                    <div class="_card swiper-slide">
+                        <div class="pic"><img src="https://picsum.photos/300/100/?=16" class="" alt=""></div>
+                        <div class="card-body">
+                            <h3 class="title">海底撈火鍋 慶城店8</h3>
+                            <div class="text">
+                                <div class="star">
+                                    <span>★★★★★</span>
+                                    <span>・</span>
+                                    <span>0則評論</span>
+                                </div>
+                                <div class="info">
+                                    <span>亞洲菜</span>
+                                    <span>・</span>
+                                    <span>$$$$$</span>
+                                    <span>・</span>
+                                    <span>松山區</span>
+                                </div>
+                                <div class="bookedtimes">
+                                    <i class="fa-solid fa-chart-line" style="color: #000;"></i>
+                                    <span>今天已預訂0次</span>
+                                </div>
+                            </div>
+                            <a href="/" class="_btn">下午00:00</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-scrollbar"></div>
+                <!-- <div class="swiper-pagination"></div> -->
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.2.0/swiper-bundle.min.js"
+    integrity="sha512-QwpsxtdZRih55GaU/Ce2Baqoy2tEv9GltjAG8yuTy2k9lHqK7VHHp3wWWe+yITYKZlsT3AaCj49ZxMYPp46iJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        // slidesPerView: 5,
+        spaceBetween: 20,
+        slidesPerGroup: 3,
+        loop: true,
+        centerSlide: true,
+        fade:true,
+        grabCursor: true,
+        // loopFillGroupWithBlank: true,
+        // pagination: {
+        //     el: ".swiper-pagination",
+        //     clickable: true
+        // },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        scrollbar: {
+            el: ".swiper-scrollbar",
+            hide: true,
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 1
+            },
+            520: {
+                slidesPerView: 3
+            },
+            1024 : {
+                slidesPerView: 5
+            },
+
+        },
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+
+</html>
