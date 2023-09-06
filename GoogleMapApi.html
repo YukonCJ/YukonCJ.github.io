@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="btn">btn</div>
+</body>
+<script>
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+
+    // 使用 Google Maps Geocoding API 请求反向地理编码
+    var geocodingUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=YOUR_API_KEY`;
+
+    fetch(geocodingUrl)
+        .then(response => response.json())
+        .then(data => {
+            // 解析反向地理编码结果
+            if (data.results.length > 0) {
+                var address = data.results[0].formatted_address;
+                console.log("设备的地址是：" + address);
+
+                // 在界面上显示地址信息或执行其他操作
+            } else {
+                console.log("无法获取地址信息");
+            }
+        })
+        .catch(error => {
+            console.error("发生错误：" + error);
+        });
+</script>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const Geocodio = require('geocodio-library-node');
+    const geocoder = new Geocodio('ff0fa026460e04a8767eaaa7924182ea110a08b');
+
+    geocoder.geocode('address')
+        .then(response => {
+            console.log(response);
+        })
+        .catch(err => {
+            console.error(err);
+        }
+        );
+</script>
+
+</html>
