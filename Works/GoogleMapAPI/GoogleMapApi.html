@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="btn" onclick="getdata()">btn</div>
+    <div class="info">info</div>
+</body>
+<script>
+    var keys = "AIzaSyBNwCvI3FPF-pJihFoy0XIdpTu19vfrLo8"
+    var key = String.empty
+    var output = document.querySelector(".info")
+    function getdata(){
+        navigator.geolocation.getCurrentPosition(success);
+    }
+    function success(position) {
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
+
+        
+        // 使用 Google Maps Geocoding API 请求反向地理编码
+        var geocodingUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${key}
+    &language=zh-TW`;
+
+        fetch(geocodingUrl)
+            .then(response => response.json())
+            .then(data => {
+                // 解析反向地理编码结果
+                if (data.results.length > 0) {
+                    var dist = data.results[0].address_components[3].long_name
+                    console.log(dist);
+                    // 在界面上显示地址信息或执行其他操作
+                    output.innerHTML ="<p>Latitude is " +lat +"° <br>Longitude is " +lng +"°</p>"+`<p>${dist}</p>`;
+                } else {
+                    console.log("定位失敗");
+                }
+            })
+            .catch(error => {
+                console.error("發生錯誤:" + error);
+            });
+    }
+    // function getdata() {
+    //     var lat = latitude;
+    //     var lng = longitude;
+
+    //     var url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}`
+    //     fetch(url)
+    //         .then(res => {
+    //             console.log(res);
+    //         })
+
+    // }
+</script>
+
+</html>

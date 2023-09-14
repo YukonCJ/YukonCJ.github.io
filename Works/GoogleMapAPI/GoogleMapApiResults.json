@@ -1,0 +1,83 @@
+{
+    "address_components": [
+        {
+            "long_name": "1",
+            "short_name": "1",
+            "types": [
+                "street_number"
+            ]
+        },
+        {
+            "long_name": "松江路90巷",
+            "short_name": "松江路90巷",
+            "types": [
+                "route"
+            ]
+        },
+        {
+            "long_name": "興亞里",
+            "short_name": "興亞里",
+            "types": [
+                "administrative_area_level_4",
+                "political"
+            ]
+        },
+        {
+            "long_name": "中山區",
+            "short_name": "中山區",
+            "types": [
+                "administrative_area_level_3",
+                "political"
+            ]
+        },
+        {
+            "long_name": "台北市",
+            "short_name": "台北市",
+            "types": [
+                "administrative_area_level_1",
+                "political"
+            ]
+        },
+        {
+            "long_name": "台灣",
+            "short_name": "TW",
+            "types": [
+                "country",
+                "political"
+            ]
+        },
+        {
+            "long_name": "10491",
+            "short_name": "10491",
+            "types": [
+                "postal_code"
+            ]
+        }
+    ],
+    "formatted_address": "10491台灣台北市中山區松江路90巷1號",
+    "geometry": {
+        "location": {
+            "lat": 25.0506573,
+            "lng": 121.5324261
+        },
+        "location_type": "ROOFTOP",
+        "viewport": {
+            "northeast": {
+                "lat": 25.0520062802915,
+                "lng": 121.5337750802915
+            },
+            "southwest": {
+                "lat": 25.0493083197085,
+                "lng": 121.5310771197085
+            }
+        }
+    },
+    "place_id": "ChIJ_92dQ2GpQjQRhxOamTENKKU",
+    "plus_code": {
+        "compound_code": "3G2J+7X 台灣台北市中山區",
+        "global_code": "7QQ33G2J+7X"
+    },
+    "types": [
+        "street_address"
+    ]
+}
