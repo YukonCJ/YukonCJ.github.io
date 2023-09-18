@@ -1,0 +1,71 @@
+body {
+    font-family: 'Brandon Text', sans-serif;
+}
+.bottle {
+    padding: 1.75rem;
+}
+/* Tabs */
+.nav-tabs{
+    margin-bottom: 1rem;
+}
+.nav-link{
+    color: #6f737b;
+}
+.nav-item .nav-link.active {
+    color: #da3743;
+}
+/* Cards */
+.rank {
+    border-bottom: 1px solid #f1f2f4;
+}
+
+.rank .card-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rank2 .pic,
+.rank3 .pic {
+    width: 80px;
+    height: 80px;
+}
+.rank1 img,
+.rank2 img,
+.rank3 img {
+    width: 100%;
+    object-fit: cover;
+}
+
+@media screen and (min-width:768px) {
+    .tab-pane.show.active{
+        display: flex;
+    }
+    .rank,
+    .rankSection{
+        width: 50%;
+    }
+    .rank2,
+    .rank3{
+        width: 100%;
+    }
+
+}
+@media screen and (min-width:1024px) {
+    .rank{
+        display: flex;
+        width: 66.667%;
+        gap: 5px;
+    }
+    .pix,
+    .cardbody{
+        width: 50%;
+    }
+    .rankSection{
+        width: 33.33%;
+    }
+    .rank2,
+    .rank3{
+        width: 100%;
+    }
+
+}

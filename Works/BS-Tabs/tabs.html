@@ -7,36 +7,119 @@
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <style>
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./tabs.css">
 </head>
 
 <body>
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
-                type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Home</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
-                type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Profile</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane"
-                type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Contact</button>
-        </li>
-    </ul>
-    <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
-            tabindex="0">
-            AAA
+    <div class="bottle">
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="avg-tab" data-bs-toggle="tab" data-bs-target="#avg-tab-pane"
+                    type="button" role="tab" aria-controls="avg-tab-pane" aria-selected="true">整體</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="food-tab" data-bs-toggle="tab" data-bs-target="#food-tab-pane"
+                    type="button" role="tab" aria-controls="food-tab-pane" aria-selected="false">食物</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="service-tab" data-bs-toggle="tab" data-bs-target="#service-tab-pane"
+                    type="button" role="tab" aria-controls="service-tab-pane" aria-selected="false">服務</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="atmosphere-tab" data-bs-toggle="tab" data-bs-target="#atmosphere-tab-pane"
+                    type="button" role="tab" aria-controls="atmosphere-tab-pane" aria-selected="false">氛圍</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="overall-tab" data-bs-toggle="tab" data-bs-target="#overall-tab-pane"
+                    type="button" role="tab" aria-controls="overall-tab-pane" aria-selected="false">CP值</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="avg-tab-pane" role="tabpanel" aria-labelledby="avg-tab"
+                tabindex="0">
+                <div class="rank rank1 pb-3 mb-3">
+                    <div class="pix">
+                        <img src="https://picsum.photos/300/200/?random=10" class=" mb-2 rounded">
+                    </div>
+                    <div class="cardbody">
+                        <div class="card-title text-start fs-5">
+                            <div class="title">海底撈火鍋 慶城店</div>
+                            <div><i class="fa-regular fa-bookmark" style="color: #da3743;"></i></div>
+                        </div>
+                        <div class="card-text text-start fs-6">
+                            <span>松山區</span>・
+                            <span>$$$$</span>・
+                            <span>亞洲菜</span>・
+                            <span>★ 4.9 (5)</span>
+                        </div>
+                        <div class="detail mb-2 text-start fs-6">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae consectetur ad,
+                            quisquam
+                            rem nihil blanditiis?
+                        </div>
+                        <a href="#" class="btn btn-outline-danger fs-6">尋找下一個可訂位的時段</a>
+                    </div>
+                </div>
+                <div class="rankSection">
+                    <div class="rank rank2 pb-3 mb-3 d-flex">
+                        <div class="pic col-3 my-auto m-2">
+                            <img src="https://picsum.photos/300/200/?random=10" class="h-100 w-100 ">
+                        </div>
+                        <div class="content">
+                            <div class="card-title text-start fs-5">
+                                <div class="title">海底撈火鍋 慶城店</div>
+                                <div><i class="fa-regular fa-bookmark" style="color: #da3743;"></i></div>
+                            </div>
+                            <div class="card-text text-start fs-6">
+                                <span>$$$$</span>・
+                                <span>亞洲菜</span>・
+                                <span>★ 4.9 (5)</span>
+                            </div>
+                            <div class="detail mb-2 text-start fs-6">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rank rank3 pb-3 mb-3 d-flex">
+                        <div class="pic col-3 my-auto m-2">
+                            <img src="https://picsum.photos/300/200/?random=10" class="h-100 w-100">
+                        </div>
+                        <div class="content">
+                            <div class="card-title text-start fs-5">
+                                <div class="title">海底撈火鍋 慶城店</div>
+                                <div><i class="fa-regular fa-bookmark" style="color: #da3743;"></i></div>
+                            </div>
+                            <div class="card-text text-start fs-6">
+                                <span>$$$$</span>・
+                                <span>亞洲菜</span>・
+                                <span>★ 4.9 (5)</span>
+                            </div>
+                            <div class="detail mb-2 text-start fs-6">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="food-tab-pane" role="tabpanel" aria-labelledby="food-tab" tabindex="0">
+                food
+            </div>
+            <div class="tab-pane fade" id="service-tab-pane" role="tabpanel" aria-labelledby="service-tab" tabindex="0">
+                service
+            </div>
+            <div class="tab-pane fade" id="atmosphere-tab-pane" role="tabpanel" aria-labelledby="atmosphere-tab"
+                tabindex="0">
+                atmosphere
+            </div>
+            <div class="tab-pane fade" id="overall-tab-pane" role="tabpanel" aria-labelledby="overall-tab" tabindex="0">
+                overall
+            </div>
         </div>
-        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-            BBB
-        </div>
-        <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-            CCC
-        </div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
