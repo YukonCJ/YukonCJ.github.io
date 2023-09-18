@@ -8,13 +8,16 @@
 </head>
 
 <body>
-    <div class="btn" onclick="getdata()">btn</div>
-    <div class="info">info</div>
+    <button class="btn" onclick="getdata()">btn</button>
+    <span class="info">info</span>
 </body>
 <script>
     var keys = "AIzaSyBNwCvI3FPF-pJihFoy0XIdpTu19vfrLo8"
     var key = String.empty
     var output = document.querySelector(".info")
+    var btn = document.querySelector(".btn")
+    console.log(btn);
+    console.log(output);
     function getdata(){
         navigator.geolocation.getCurrentPosition(success);
     }
