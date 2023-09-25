@@ -10,36 +10,51 @@
 <body>
     <button class="btn" onclick="getdata()">btn</button>
     <span class="info">info</span>
+
+    <div onclick="father">
+        <a href="tel:0987883775" id="totell" onclick="window.event.cancelBubble=true"></a>
+    </div>
+    <button onclick="tel()">打電話</button>
+
 </body>
 <script>
     var keys = "AIzaSyBNwCvI3FPF-pJihFoy0XIdpTu19vfrLo8"
     var key = String.empty
     var output = document.querySelector(".info")
     var btn = document.querySelector(".btn")
-    console.log(btn);
-    console.log(output);
     function getdata(){
         navigator.geolocation.getCurrentPosition(success);
     }
     function success(position) {
         var lat = position.coords.latitude;
         var lng = position.coords.longitude;
-
-        
-        // 使用 Google Maps Geocoding API 请求反向地理编码
-        var geocodingUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${key}
+        var geocodingUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${keys}
     &language=zh-TW`;
 
         fetch(geocodingUrl)
             .then(response => response.json())
             .then(data => {
-                // 解析反向地理编码结果
                 if (data.results.length > 0) {
-                    var dist = data.results[0].address_components[3].long_name
-                    console.log(dist);
-                    // 在界面上显示地址信息或执行其他操作
+                    var len = data.results[0].address_components.length
+                    var dist = data.results[0].address_components[len-3].long_name
+                    console.log(data);
                     output.innerHTML ="<p>Latitude is " +lat +"° <br>Longitude is " +lng +"°</p>"+`<p>${dist}</p>`;
-                } else {
+                    $("button.output").change(function () {
+                    //let urlParams = new URLSearchParams(window.location.search);
+                    var Url = new URLSearchParams(window.location.href);
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("Index", "Home")',
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        data: {
+                            Data: JSON.stringify(_json)
+                            }
+                        });
+                    })();
+
+            } else {
                     console.log("定位失敗");
                 }
             })
@@ -59,5 +74,14 @@
 
     // }
 </script>
+<script>
+    function tel(e){
+        const a =document.getElementById("totell")
+        a.click()
+    }
+    function father(){
 
+    }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </html>
