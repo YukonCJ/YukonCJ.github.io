@@ -5,26 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
     <style>
         body {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
+            height: 100vh;
             font-family: sans-serif;
+            background: linear-gradient(42deg,#4158D0 0%,#c850C0 46%,#FFCC70 100%);
+            background-repeat: no-repeat;
         }
-
+        
         ::-webkit-scrollbar {
             width: 5px;
         }
-
+        
         ::-webkit-scrollbar-thumb {
             background: #c70039;
             border-radius: 50%;
         }
+        
+        .row{
+            display: flex;
+            justify-content: center;
+        }
 
-        .works a,
-        .head {
+        .container-fluid>h1,
+        .navbar-nav a{
+            color: white;
+        }
+        .works li{
             margin: auto;
             text-decoration: none;
             font-size: 24px;
@@ -35,13 +51,14 @@
         }
 
         .works {
+            background: #fff;
+            list-style-type: none;
             width: 400px;
-            display: flex;
-            flex-direction: column;
-            position: fixed;
-            left: 0;
-            top: 0;
+            margin: 40px 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
         }
+
         .head i {
             font-size: 48px;
             display: block;
@@ -52,23 +69,40 @@
 </head>
 
 <body>
-    <div class="head">
-        <i class="fa-solid fa-star" style="color: transparent;"></i>
-    </div>
-    <div class="works">
-        <a href="./Works/JS-DrawPieChart/marketingShare.html">MarketingShare-PieChart</a>
-        <a href="./Works/JS-LOLcard/LoL_CardStatic.html">LOL Card</a>
-        <a href="./Works/JS-NumBomb/1A2B.html">1A2B</a>
-        <a href="./Works/JS-leaflet/Leaflet.html">Leaflet-YouBike</a>
-        <a href="./Works/JS-Calendar/Calendar.html">Calendar</a>
-        <a href="./Works/JS-AppleIPad/apple-ta-course/index.html">Mock Apple Page </a>
-        <a href="./Works/JS-ToDoList/LocalStorage_TodoList.html">ToDoList </a>
-        <a href="./Works/JS-swiper/card-swiper.html">Swiper-cards </a>
-        <a href="./Works/GoogleMapAPI/GoogleMapApi.html">google + tel btn</a>
-    </div>
-    <div class="footer">
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body">
+        <div class="container-fluid">
+            <h1 class="navbar-brand" href="#">WORKS</h1>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="#">#2</a>
+                    <a class="nav-link" href="#">#3</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <ul class="works">
+                <li><a href="./Works/0525shopline/01.html">Mock-Shopline</a></li>
+                <li><a href="./Works/JS-DrawPieChart/marketingShare.html">MarketingShare-PieChart</a></li>
+                <li><a href="./Works/JS-LOLcard/LoL_CardStatic.html">Heroes DOM</a></li>
+                <li><a href="./Works/JS-leaflet/Leaflet.html">LeafletMap-YouBike</a></li>
+                <li><a href="./Works/JS-Calendar/Calendar.html">Calendar</a></li>
+                <li><a href="./Works/JS-ToDoList/LocalStorage_TodoList.html">ToDoList </a></li>
+                <li><a href="./Works/JS-swiper/card-swiper.html">Swiper-cards </a></li>
+            </ul>
+        </div>
 
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
 </body>
-
-</html>
